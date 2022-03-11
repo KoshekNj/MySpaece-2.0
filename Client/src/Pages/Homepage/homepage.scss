@@ -1,0 +1,131 @@
+@import './src/components/_mixins';
+@import './src/components/_variables';
+
+.home{
+    display: flex;
+    flex-direction: column;
+}
+.home__top{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+}
+
+.home__links{  //mixin
+    margin: 3rem 1rem 1rem 1rem;
+    align-self: flex-start;
+    display:flex;
+    flex-direction: column;
+    height:8rem;
+    width: fit-content;
+
+    img{
+        margin-right: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;   
+    }
+
+    p{
+        font-family: $font-user;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: aliceblue;
+    }
+} 
+
+
+.home__link1 p{   
+    @include links;
+}
+
+.home__link2 p{
+    @include links;
+}
+
+.home__link3 p{
+    @include links;
+}
+
+.home__bottom{
+    display: flex;
+    flex-direction:row;
+    width:100%;
+}
+.home__left-side{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+
+.home__reklama{   //nisam mogla nazvat home__ad??? Tad mi nije radilo lol wild
+    display: block;
+    width:fit-content;
+    height:fit-content;
+    margin: 35px 35px 15px 35px ;
+    border: 8px solid #746E6E;
+    box-sizing: border-box;
+
+
+    img{
+            width:19rem;
+            height:19rem;
+        }
+    
+        
+}
+
+
+.home__right-side{
+    align-self: flex-start;
+    display:flex;
+    flex-direction: column;
+    height:10rem;
+    width: 50%;
+    height:100%;
+
+    .home__create-post{
+    height: fit-content;
+    margin:0px 70px 50px 0px;
+    background: $color-posts;
+    box-shadow: $shadow;
+    backdrop-filter: blur(4px);
+
+        input{
+        background: $color-input;
+        box-shadow: $shadow;
+        border-radius: 6px;
+        height: fit-content;
+        margin:20px 20px 0px 20px;
+        width: 90%;
+        
+        }
+
+        input,
+        input::-webkit-input-placeholder {
+        font-family: Orbitron;
+        font-size: 13px;
+        line-height: 3;
+        color: $color-p;
+        padding-left: 5px;
+        }
+
+        button{
+        width: 5rem; //mixin i za signup triba
+        margin: 15px 0px 15px 0px;
+        @include button;
+        } 
+
+    }
+
+
+}
+
+
+
+

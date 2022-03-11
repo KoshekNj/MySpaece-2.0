@@ -1,0 +1,58 @@
+.quiz__a--first{
+    grid-area: answer1;
+}
+
+.quiz__q--first{
+    grid-area: question1;
+}
+
+.quiz__a--second{
+    grid-area: answer2;
+}
+
+.quiz__q--second{
+    grid-area: question2;
+}
+
+.quiz__a--third{
+    grid-area: answer3;
+}
+
+.quiz__q--third{
+    grid-area: question3;
+}
+
+.quiz{
+    background: rgba(57, 0, 0, 0.7); //ovo sve uvalit u mixin
+    padding:10px;
+    text-align: center;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+    margin: 35px 35px 15px 35px ;
+    width: 24rem;
+    min-height:200px;
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 30px 30px 30px auto;
+    grid-template-areas: 
+    "question1 answer1 "
+    "question2 answer2 "
+    "question3 answer3 "
+    "picture picture ";
+
+    img{
+    align-self:center;
+    justify-self: center;
+    object-fit: contain;
+    grid-area: picture;
+    width:5.5rem;
+    height: 5rem;;
+
+    }
+}
+
+
+

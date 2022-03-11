@@ -1,0 +1,21 @@
+
+@mixin links{
+    display: inline-block;
+    width:200px;
+    height:1.5rem;
+}
+
+@mixin button{
+    height: fit-content;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size:13px;
+    line-height: 28px;
+    text-align: center;
+    color: #E9F2F4;
+    font-weight: bolder;
+     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+}

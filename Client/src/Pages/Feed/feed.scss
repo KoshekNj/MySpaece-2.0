@@ -1,0 +1,56 @@
+@import './src/components/_mixins';
+@import './src/components/_variables';
+.feed__top{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.feed__links{  //mixin
+    margin: 3rem 1rem 1rem 1rem;
+    align-self: flex-start;
+    display:flex;
+    flex-direction: column;
+    height:8rem;
+    width: fit-content;
+
+    img{
+        margin-right: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;   
+    }
+
+    p{
+        font-family: $font-user;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: aliceblue;
+    }
+} 
+
+
+.feed__links--first p {   
+    @include links;
+}
+
+.feed__links--second p {
+    @include links;
+}
+
+.feed__links--third p {
+    @include links;
+}
+
+img[src="stilinspoconspiracymap.png"]{
+    margin:3rem 20rem 10px 10px;
+    width: 682px;
+    height: 101px;
+}
+
+.bottom{
+    display:flex;
+    justify-content: center;
+}
+

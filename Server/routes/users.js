@@ -17,7 +17,7 @@ router.get('/:id', getUser, (req, res) => {
 })
 
 // Creating one
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
@@ -30,6 +30,25 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 })
+
+//Login
+router.post("/login", async (req, res) => {
+    console.log(req.body);
+    try {
+      const user = await User.findOne({ username: req.body.username });
+      if (!user) return res.status(404).json({ message: "User not found" });
+  
+      if(password!==req.body.password)
+        return res.status(400).json({ message: "Authentication failed" });
+        
+    }
+    
+        catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+          }
+         
+        });
 
 // Updating One
 /*router.patch('/:id', getUser, async (req, res) => {

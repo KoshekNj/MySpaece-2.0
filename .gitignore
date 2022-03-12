@@ -5,10 +5,10 @@
 /.pnp
 .pnp.js
 
-# testing aa ovdi cu heh =33
+# testing 
 /coverage 
 
-# production
+# production 
 /build
 
 # misc

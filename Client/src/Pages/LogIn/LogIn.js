@@ -5,7 +5,7 @@ import {
    Link,
    useNavigate
 } from "react-router-dom";
-
+import axios from 'axios';
 
 
 const LogIn = () => {
@@ -30,6 +30,26 @@ const LogIn = () => {
       },
    ]);
 
+   const login = async () => {
+      try {
+        const response = await axios.post(
+          `http://localhost:8080/users/login`,
+          {
+            password: values.password,
+            username: values.username,
+          },
+          { withCredentials: true }
+        );
+
+        console.log(response.data);
+
+  
+        navigate(`/home`);
+      } catch (error) {
+         console.log(error.response.data.message);
+      }
+    };
+    console.log(values);
    const onChange = (e) => {
       setValues({ ...values, [e.target.name]: e.target.value });
    };
@@ -37,6 +57,7 @@ const LogIn = () => {
 
    const submitForm = (e) => {
       e.preventDefault();
+      login();
    };
 
    useEffect(() => { console.log(values.username, values.password) });

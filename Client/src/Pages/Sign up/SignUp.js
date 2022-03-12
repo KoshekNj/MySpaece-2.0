@@ -5,6 +5,7 @@ import {
         Link,
         useNavigate
 } from "react-router-dom";
+import axios from 'axios';
 
 
 
@@ -57,7 +58,7 @@ const SignUp = () => {
                 },
                 {
                         id: 4,
-                        name: "confirmPassword",
+                        name: "password2",
                         type: "password",
                         placeholder: "Confirm Password",
                         errorMessage: "",
@@ -73,14 +74,39 @@ const SignUp = () => {
 
         }
 
+        const register = async () => {
+                try {
+                  await axios.post(
+                    `http://localhost:8080/users/register`,
+                    {
+                      username: value.username,
+                      password: value.password,
+                      confirmPassword: value.confirmPassword,
+                      email: value.email,
+                    },
+                    { withCredentials: true }
+                  );
+                } catch (error) {
+                  console.log(error.response.data.message);
+                  
+                }
+              };
+
         const submitForm = () => {
-                if (value.username.length > 0 && value.email.length > 0) {
-                        value.password === value.password2 ? navigate("/home") : alert("Nope");
+              
+                //if (inputs.username.length > 0 && inputs.email.length > 0) {
+                        if(inputs.password === inputs.password2){
+                                setInputs([...inputs]);
+                                register();
+                                navigate("/home");  
+                        } 
+                        else
+                        alert("Nope");
 
                 }
-                else
+                /*else
                         alert("Nope");
-        }
+        }*/
 
         return (
                 <div className="sign-up">

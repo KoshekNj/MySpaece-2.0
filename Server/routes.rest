@@ -2,7 +2,7 @@ GET http://localhost:8080/users
 
 ###
 
-GET http://localhost:8080/users/62262f73e7bbf240cc85b2e4
+GET http://localhost:8080/users/622cccd4bffb4f5279f5f15c
 
 ###
 
@@ -18,3 +18,6 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:8080/users/62262f73e7bbf240cc85b2e4
+
+###
+POST http://localhost:8080/users

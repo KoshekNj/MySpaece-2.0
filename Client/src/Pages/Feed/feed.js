@@ -6,7 +6,7 @@ import Post from '../../Components/Post/post'
 import { Link, useNavigate } from "react-router-dom";
 
 const Feed = () => {
-
+    let pageName="Wordwide feed";
     const [array, setArray] = useState([]);
 
     useEffect(() => {
@@ -15,14 +15,14 @@ const Feed = () => {
                 return res.json();
             })
             .then(data => {
-                setArray([...array, data]);
+                setArray([...array, ...data]);
             })
     }, [])
 
     console.log(array);
     return (
         <div className='feed'>
-            <Header />
+            <Header page={pageName} />
             <div className='feed__top'>
                 <div className='feed__links'>
                     <Link to="/home">
@@ -30,10 +30,11 @@ const Feed = () => {
                             <img src="profile2.png" alt="Profile ikona"></img>
                             <p>My profile</p>
                         </div></Link>
+                    <Link to="/search">  
                     <div className='feed__links--second'>
                         <img src="friends.png" alt="FRIENDS ikona"></img>
                         <p>Contact center</p>
-                    </div>
+                    </div></Link>
                     <div className='feed__links--third'>
                         <img src="editprofile.png" alt="EDIT ikona"></img>
                         <p>Profile costumization</p>
@@ -43,7 +44,7 @@ const Feed = () => {
             </div>
             <div className='feed__bottom'>
 
-                {array?.map(post => <Post post={post} />)}
+                {array?.map(post => <Post key={post.id} post={post} />)}
             </div>
         </div >
 

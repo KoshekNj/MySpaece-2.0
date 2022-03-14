@@ -1,5 +1,11 @@
 @import './src/components/_mixins';
 @import './src/components/_variables';
+
+.feed{
+    display: flex;
+    flex-direction: column;
+
+}
 .feed__top{
     display:flex;
     flex-direction: row;
@@ -49,8 +55,12 @@ img[src="stilinspoconspiracymap.png"]{
     height: 101px;
 }
 
-.bottom{
+.feed__bottom{
+    align-self: center;
     display:flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 60%;
 }
 

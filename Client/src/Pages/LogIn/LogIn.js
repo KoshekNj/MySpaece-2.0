@@ -10,6 +10,7 @@ import axios from 'axios';
 
 const LogIn = () => {
 
+
    const [values, setValues] = useState({ username: "", password: "" });
    const [inputs, setInputs] = useState([
       {
@@ -35,16 +36,14 @@ const LogIn = () => {
         const response = await axios.post(
           `http://localhost:8080/users/login`,
           {
-            password: values.password,
-            username: values.username,
+            password: values.passw,
+            username: values.uname,
           },
           { withCredentials: true }
         );
-
+        
         console.log(response.data);
 
-  
-        navigate(`/home`);
       } catch (error) {
          console.log(error.response.data.message);
       }
@@ -58,6 +57,7 @@ const LogIn = () => {
    const submitForm = (e) => {
       e.preventDefault();
       login();
+      navigate("/home"); 
    };
 
    useEffect(() => { console.log(values.username, values.password) });

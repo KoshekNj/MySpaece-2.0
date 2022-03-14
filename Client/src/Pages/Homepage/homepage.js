@@ -11,8 +11,8 @@ import axios from 'axios';
 let index = 1;
 
 const Homepage = () => {
-
-    const [users, setUsers] = useState([])
+    let pageName="My profile";
+    const [users, setUsers] = useState([]);
     const date = new Date();
     const formatDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 
@@ -25,8 +25,6 @@ const Homepage = () => {
 
     React.useEffect(() => { //jos uvik mislim da je lipse importat, al evo malo React.
         const getUsers = async () => {
-
-
             try {
                 const res = await axios.get('http://localhost:8080/users');
                 console.log(res);
@@ -48,10 +46,7 @@ const Homepage = () => {
 
     }
 
-
-
     const submitPost = () => {
-
         index = index + 1;
         value.id = index;
         setValue({ ...value });
@@ -62,7 +57,7 @@ const Homepage = () => {
 
     return (
         <div>
-            <Header />
+            <Header page={pageName}/>
             <div className='home'>
                 <div className='home__top'>
                     <div className='home__links'>
@@ -71,10 +66,11 @@ const Homepage = () => {
                                 <img src="computer icon.png" alt="WWF ikona"></img>
                                 <p>Worldwide feed</p>
                             </div></Link>
+                            <Link to ="/search">
                         <div className='home__link2'>
                             <img src="friends.png" alt="FRIENDS ikona"></img>
                             <p>Contact center</p>
-                        </div>
+                        </div></Link>
                         <div className='home__link3'>
                             <img src="editprofile.png" alt="EDIT ikona"></img>
                             <p>Profile costumization</p>

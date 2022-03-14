@@ -6,72 +6,52 @@ import {
    useNavigate
 } from "react-router-dom";
 import axios from 'axios';
+import { useFormik } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 
 const LogIn = () => {
 
+   const navigate = useNavigate();
 
-   const [values, setValues] = useState({ username: "", password: "" });
-   const [inputs, setInputs] = useState([
-      {
-         id: 1,
-         name: "username",
-         type: "text",
-         placeholder: "username",
-         label: "Username",
-         required: true,
-      },
-      {
-         id: 2,
-         name: "password",
-         type: "password",
-         placeholder: "Password",
-         label: "Password",
-         required: true,
-      },
-   ]);
-
-   const login = async () => {
+   const login = async (values) => {
       try {
-        const response = await axios.post(
-          `http://localhost:8080/users/login`,
-          {
-            password: values.passw,
-            username: values.uname,
-          },
-          { withCredentials: true }
-        );
-        
-        console.log(response.data);
+         const response = await axios.post(
+            `http://localhost:8080/users/login`,
+            {
+               password: values.password,
+               username: values.username,
+            },
+            { withCredentials: true }
+         );
+
+         console.log(response.data);
+         navigate("/home");
 
       } catch (error) {
          console.log(error.response.data.message);
+         alert("Wrong username or password");
       }
-    };
-    console.log(values);
-   const onChange = (e) => {
-      setValues({ ...values, [e.target.name]: e.target.value });
    };
-   const navigate = useNavigate();
-
-   const submitForm = (e) => {
-      e.preventDefault();
-      login();
-      navigate("/home"); 
-   };
-
-   useEffect(() => { console.log(values.username, values.password) });
 
    return (
       <div className='log-in'>
          <div className="log-in__container">
             <h2>Welcome to</h2>
             <h1>MySpæc</h1>
-            <form onSubmit={submitForm}>
-               <input onChange={onChange} type="text" placeholder="Enter your username" name="uname" required></input>
-               <input onChange={onChange} type="password" placeholder="Enter your password" name="passw" required></input>
-               <button>Log In</button>
-            </form>
+            <Formik initialValues={{
+               username: "",
+               password: ""
+            }}
+               onSubmit={values => {
+                  login(values);
+               }}>
+               <Form>
+                  <Field  type="text" placeholder="Enter your username" name="username" />
+                  <Field  type="password" placeholder="Enter your password" name="password" />
+                  <button type="submit ">Log In</button>
+               </Form>
+            </Formik>
             <div className='log-in__redirect'>
                <h3>Don't have an account?</h3>
                <Link to="/signUp"> Signup</Link>

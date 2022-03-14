@@ -40,7 +40,7 @@ const Feed = () => {
                         <p>Profile costumization</p>
                     </div>
                 </div>
-                <img src="stilinspoconspiracymap.png" alt="Reklama"></img>
+                <img src="ad.jpg" alt="Reklama"></img>
             </div>
             <div className='feed__bottom'>
 

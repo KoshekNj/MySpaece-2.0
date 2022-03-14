@@ -39,7 +39,7 @@ const Search = ()=>{
                         <p>Profile costumization</p>
                     </div>
                 </div>
-                <img src="stilinspoconspiracymap.png" alt="Reklama"></img>
+                <img src="inspoestetika20s.jpg" alt="Reklama"></img>
             </div>
             <div className='search__bottom'>
                 <h2>Looking for a friend?</h2>

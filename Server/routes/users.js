@@ -1,6 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const User = require('../models/user')
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 // Getting all
 router.get('/', async (req, res) => {
     try {
@@ -18,18 +21,33 @@ router.get('/:id', getUser, (req, res) => {
 
 // Creating one
 router.post('/register', async (req, res) => {
+
+    const usernameTaken = await User.findOne({ username: req.body.username });
+    const emailTaken = await User.findOne({ email: req.body.email });
+
+    if (usernameTaken)
+        return res.status(500).json({ message: "Username already in use" });
+    if (emailTaken)
+        return res.status(500).json({ message: "Email already in use" });
+    else {
+        try {
+        //Hash password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+            console.log(hashedPassword);
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: hashedPassword
     })
-    try {
+    
         const newUser = await user.save()
         res.status(201).json(newUser)
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
-})
+}
+});
 
 //Login
 router.post("/login", async (req, res) => {
@@ -38,9 +56,21 @@ router.post("/login", async (req, res) => {
       const user = await User.findOne({ username: req.body.username });
       if (!user) return res.status(404).json({ message: "User not found" });
   
-      if(user.password!==req.body.password)
+      const validPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+      );
+  
+      if (!validPassword)
         return res.status(400).json({ message: "Authentication failed" });
-        
+
+      const token = jwt.sign(
+        { username: user.username, email: user.email },
+        process.env.SECRET_TOKEN
+      );
+
+        const {username, email} = user._doc;
+        res.status(200).json({ token, username, email});
     }
     
         catch (error) {

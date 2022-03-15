@@ -85,7 +85,7 @@ const Homepage = () => {
                         <div className='home__reklama'>
                             <img src="krasvjevericakvadrat.png" alt="Kras"></img>
                         </div>
-                        <Link to="/logIn"><p>LOG OUT</p></Link>
+                        <Link to="/"><p>LOG OUT</p></Link>
                     </div>
 
 

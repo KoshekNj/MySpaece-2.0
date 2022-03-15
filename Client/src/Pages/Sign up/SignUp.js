@@ -15,7 +15,7 @@ const SignUp = () => {
 
         const register = async (values) => {
                 try {
-                        await axios.post(
+                        const response=await axios.post(
                                 `http://localhost:8080/users/register`,
                                 {
                                         username: values.username,
@@ -26,11 +26,11 @@ const SignUp = () => {
                                 { withCredentials: true }
                         );
 
-                        navigate("/home");
+                        navigate(`/home`);
 
                 } catch (error) {
                         console.log(error.response.data.message);
-                        alert("Something's wrong lol");
+                        alert(error.response.data.message);
                 }
         };
 

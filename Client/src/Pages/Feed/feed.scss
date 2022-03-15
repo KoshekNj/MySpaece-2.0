@@ -37,15 +37,15 @@
 } 
 
 
-.feed__links--first p {   
+.feed__links--first {   
     @include links;
 }
 
-.feed__links--second p {
+.feed__links--second {
     @include links;
 }
 
-.feed__links--third p {
+.feed__links--third {
     @include links;
 }
 

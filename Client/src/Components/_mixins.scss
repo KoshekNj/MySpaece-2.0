@@ -1,6 +1,8 @@
 
 @mixin links{
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
     width:200px;
     height:1.5rem;
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from '../../Components/Header/Header';
 import './feed.scss';
 import Post from '../../Components/Post/post'
+import reklamaFeed from '../../Ads/Banner1.png';
 import { Link, useNavigate } from "react-router-dom";
 
 const Feed = () => {
@@ -40,7 +41,7 @@ const Feed = () => {
                         <p>Profile costumization</p>
                     </div>
                 </div>
-                <img src="ad.jpg" alt="Reklama"></img>
+                <img src={reklamaFeed} alt="Reklama" class="ad2"></img>
             </div>
             <div className='feed__bottom'>
 

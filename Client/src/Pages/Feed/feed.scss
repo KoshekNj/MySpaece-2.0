@@ -13,27 +13,7 @@
 }
 
 .feed__links{  //mixin
-    margin: 3rem 1rem 1rem 1rem;
-    align-self: flex-start;
-    display:flex;
-    flex-direction: column;
-    height:8rem;
-    width: fit-content;
-
-    img{
-        margin-right: 0.5rem;
-        width: 1.5rem;
-        height: 1.5rem;   
-    }
-
-    p{
-        font-family: $font-user;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 18px;
-        color: aliceblue;
-    }
+    @include links-container;
 } 
 
 
@@ -49,19 +29,22 @@
     @include links;
 }
 
-img[src="ad.jpg"]{
-    margin:3rem 20rem 10px 10px;
+.ad2{
+    object-fit: cover;
+    margin:3rem 20rem 0rem 5rem;
     width: 682px;
     height: 101px;
     border:5px solid grey;
 }
 
 .feed__bottom{
+
     align-self: center;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 60%;
+    margin-left:4rem;
 }
 

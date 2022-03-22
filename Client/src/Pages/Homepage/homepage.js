@@ -5,8 +5,10 @@ import Header from '../../Components/Header/Header'
 import ProfileBox from '../../Components/profile-box/profile'
 import QuestionBox from '../../Components/Question-box/QuestionBox'
 import Post from '../../Components/Post/post'
+import reklamaHome from '../../Ads/Banner2.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+//C:\Users\Koshek\Desktop\ReactProjekt\Client\public\Reklame\Banner3.png
 
 let index = 1;
 
@@ -76,7 +78,7 @@ const Homepage = () => {
                             <p>Profile costumization</p>
                         </div>
                     </div>
-                    <img src="stilinspoconspiracymap.png" alt="Reklama"></img>
+                    <img src={reklamaHome} alt="Reklama" class="ad1"></img>
                 </div>
                 <div className='home__bottom'>
                     <div className='home__left-side'>

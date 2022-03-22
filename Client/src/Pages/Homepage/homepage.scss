@@ -13,27 +13,7 @@
 }
 
 .home__links{  //mixin
-    margin: 3rem 1rem 1rem 1rem;
-    align-self: flex-start;
-    display:flex;
-    flex-direction: column;
-    height:8rem;
-    width: fit-content;
-
-    img{
-        margin-right: 0.5rem;
-        width: 1.5rem;
-        height: 1.5rem;   
-    }
-
-    p{
-        font-family: $font-user;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 18px;
-        color: aliceblue;
-    }
+    @include links-container;
 } 
 
 
@@ -126,8 +106,11 @@
 
 }
 
-img[src="stilinspoconspiracymap.png"]{
-    margin:3rem 20rem 10px 10px;
+.ad1{
+    align-self:baseline;
+    object-fit: cover;
+    border: 5px solid grey;
+    margin:3rem 20rem 0rem 5rem;
     width: 682px;
     height: 101px;
 }

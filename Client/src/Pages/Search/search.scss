@@ -1,28 +1,13 @@
 @import './src/components/_mixins';
 @import './src/components/_variables';
+
 .search{
     display: flex;
     flex-direction: column;
     height: 100vh;
 
-
-    input{
-        background: $color-input;
-        box-shadow: $shadow;
-        border-radius: 6px;
-        height: fit-content;
-        margin:20px 20px 0px 20px;
-        width: 90%;
-        
-        }
-
-        input,
-        input::-webkit-input-placeholder {
-        font-family: Orbitron;
-        font-size: 13px;
-        line-height: 3;
-        color: $color-p;
-        padding-left: 5px;
+        h2{
+            margin:1rem;
         }
 
         &__top{
@@ -51,6 +36,7 @@
             background-color: $color-posts;
             width: 50%;
             align-self: center;
+            margin-bottom: 1rem;
             input{
                 background: $color-input;
                 box-shadow: $shadow;
@@ -58,29 +44,49 @@
                 height: fit-content;
                 margin:20px 20px 0px 20px;
                 width: 90%;
-                
                 }
         
                 input,
                 input::-webkit-input-placeholder {
-                font-family: Orbitron;
-                font-size: 13px;
-                line-height: 3;
-                color: $color-p;
-                padding-left: 5px;
+                    font-family: Orbitron;
+                    font-size: 13px;
+                    line-height: 3;
+                    color: $color-p;
+                    padding-left: 5px;
                 }
 
                 button{
                     width: 5rem; //mixin i za signup triba
                     margin: 15px 0px 15px 0px;
                     @include button;
-                    } 
+                } 
         }
 }
 
-img[src="inspoestetika20s.jpg"]{
-    margin:3rem 20rem 10px 10px;
+.ad3{
+    object-fit: cover;
+    margin:3rem 20rem 0rem 5rem;
     width: 682px;
     height: 101px;
     border:5px solid grey;
+}
+
+.search__links{
+    @include links-container;
+}
+
+.search__link1 {   
+    @include links;
+}
+
+.search__link2 {
+    @include links;
+}
+
+.search__link3 {
+    @include links;
+}
+
+.message__holder{
+    height: 50px;
 }

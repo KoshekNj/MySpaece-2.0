@@ -14,8 +14,9 @@ const Friend=()=>{
     )
 
     const messageFriend=()=>{
-        setMessage({message2:'No, we will be friends 4ever. Just us 2 <3'})
-        setTimeout(() => setMessage({message2:''}), 3000);
+        /*setMessage({message2:'No, we will be friends 4ever. Just us 2 <3'})
+        setTimeout(() => setMessage({message2:''}), 3000);*/
+        alert('No, we will be friends 4ever. Just us 2 <3')
     }
 
     return(

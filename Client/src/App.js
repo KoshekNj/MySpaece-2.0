@@ -3,6 +3,7 @@ import Homepage from './Pages/Homepage/homepage';
 import SignUp from './Pages/Sign up/SignUp'
 import Feed from './Pages/Feed/feed'
 import Search from './Pages/Search/search';
+
 import {
   Routes,
   Route,

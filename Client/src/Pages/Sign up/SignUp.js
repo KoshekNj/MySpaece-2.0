@@ -48,7 +48,10 @@ const SignUp = () => {
                                         password2:""
                                 }}
                                         onSubmit={values => {
+                                                if(values.password===values.password2)
                                                 register(values);
+                                                else
+                                                alert("Passwords do not match")
                                         }}>
                                 <Form>
                                         <Field type="text" placeholder="Enter your e-mail" name="email"/>

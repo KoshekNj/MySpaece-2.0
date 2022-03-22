@@ -1,92 +1,91 @@
-@import './src/components/_mixins';
-@import './src/components/_variables';
+@import "./src/components/_mixins";
+@import "./src/components/_variables";
 
-.search{
+.search {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  h2 {
+    margin: 1rem;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30%;
+  }
+
+  &__bottom {
+    height: 70%;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    align-items: center;
+    justify-content: space-around;
+    font-family: $font-user;
+    color: $color-p;
 
-        h2{
-            margin:1rem;
-        }
+    &--friend {
+      width: 50%;
+    }
+  }
 
-        &__top{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            height: 30%;
-        }
+  &__searchBar {
+    background-color: $color-posts;
+    width: 50%;
+    align-self: center;
+    margin-bottom: 1rem;
+    input {
+      background: $color-input;
+      box-shadow: $shadow;
+      border-radius: 6px;
+      height: fit-content;
+      margin: 20px 20px 0px 20px;
+      width: 90%;
+    }
 
-        &__bottom{
-            height: 70%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            font-family: $font-user;
-            color: $color-p;
+    input,
+    input::-webkit-input-placeholder {
+      font-family: Orbitron;
+      font-size: 13px;
+      line-height: 3;
+      color: $color-p;
+      padding-left: 5px;
+    }
 
-            &--friend{
-                width:50%;
-            }
-
-        }
-
-        &__searchBar{
-            background-color: $color-posts;
-            width: 50%;
-            align-self: center;
-            margin-bottom: 1rem;
-            input{
-                background: $color-input;
-                box-shadow: $shadow;
-                border-radius: 6px;
-                height: fit-content;
-                margin:20px 20px 0px 20px;
-                width: 90%;
-                }
-        
-                input,
-                input::-webkit-input-placeholder {
-                    font-family: Orbitron;
-                    font-size: 13px;
-                    line-height: 3;
-                    color: $color-p;
-                    padding-left: 5px;
-                }
-
-                button{
-                    width: 5rem; //mixin i za signup triba
-                    margin: 15px 0px 15px 0px;
-                    @include button;
-                } 
-        }
+    button {
+      width: 5rem; //mixin i za signup triba
+      margin: 15px 0px 15px 0px;
+      @include button;
+    }
+  }
 }
 
-.ad3{
-    object-fit: cover;
-    margin:3rem 20rem 0rem 5rem;
-    width: 682px;
-    height: 101px;
-    border:5px solid grey;
+.ad3 {
+  object-fit: cover;
+  margin: 3rem 20rem 0rem 5rem;
+  width: 682px;
+  height: 101px;
+  border: 5px solid grey;
 }
 
-.search__links{
-    @include links-container;
+.search__links {
+  @include links-container;
 }
 
-.search__link1 {   
-    @include links;
+.search__link1 {
+  @include links;
 }
 
 .search__link2 {
-    @include links;
+  @include links;
 }
 
 .search__link3 {
-    @include links;
+  @include links;
 }
 
-.message__holder{
-    height: 50px;
+.message__holder {
+  height: 50px;
 }

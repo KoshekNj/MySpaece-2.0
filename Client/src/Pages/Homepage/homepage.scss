@@ -5,29 +5,6 @@
   display: flex;
   flex-direction: column;
 }
-.home__top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.home__links {
-  //mixin
-  @include links-container;
-}
-
-.home__link1 {
-  @include links;
-}
-
-.home__link2 {
-  @include links;
-}
-
-.home__link3 {
-  @include links; //hi bitch, nazalost nije discord. Ne vata mikrofon samo jer windows 10. Jos jedan napad amerikanaca na nasu ideju. Ye. nisam to probala ahahha sta sam tribala samo sam izbrisala git
-}
 
 .home__bottom {
   display: flex;

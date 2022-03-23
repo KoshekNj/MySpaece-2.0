@@ -17,3 +17,11 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: underline;
+}

@@ -1,31 +1,30 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import "./LogInStyle.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useFormik } from "formik";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form } from "formik";
+import "./LogInStyle.scss";
 
 const LogIn = () => {
   const navigate = useNavigate();
 
   const login = async (values) => {
-    try {
-      const response = await axios.post(
+    await axios
+      .post(
         `http://localhost:8080/users/login`,
         {
           password: values.password,
           username: values.username,
         },
         { withCredentials: true }
-      );
-
-      console.log(response.data);
-      navigate("/home");
-    } catch (error) {
-      console.log(error.response.data.message);
-      alert("Wrong username or password");
-    }
+      )
+      .then((resposnse) => {
+        console.log(resposnse.data);
+        navigate("/home");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Wrong username or password");
+      });
   };
 
   return (

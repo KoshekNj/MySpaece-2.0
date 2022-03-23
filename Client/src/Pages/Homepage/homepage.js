@@ -5,7 +5,6 @@ import Header from "../../Components/Header/Header";
 import ProfileBox from "../../Components/profile-box/profile";
 import QuestionBox from "../../Components/Question-box/QuestionBox";
 import Post from "../../Components/Post/post";
-import reklamaHome from "../../Ads/Banner2.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 //C:\Users\Koshek\Desktop\ReactProjekt\Client\public\Reklame\Banner3.png
@@ -62,27 +61,6 @@ const Homepage = () => {
     <div>
       <Header page={pageName} />
       <div className="home">
-        <div className="home__top">
-          <div className="home__links">
-            <Link to="/feed">
-              <div className="home__link1">
-                <img src="computer icon.png" alt="WWF ikona"></img>
-                <p>Worldwide feed</p>
-              </div>
-            </Link>
-            <Link to="/search">
-              <div className="home__link2">
-                <img src="friends.png" alt="FRIENDS ikona"></img>
-                <p>Contact center</p>
-              </div>
-            </Link>
-            <div className="home__link3">
-              <img src="editprofile.png" alt="EDIT ikona"></img>
-              <p>Profile costumization</p>
-            </div>
-          </div>
-          <img src={reklamaHome} alt="Reklama" class="ad1"></img>
-        </div>
         <div className="home__bottom">
           <div className="home__left-side">
             <ProfileBox />
@@ -116,7 +94,7 @@ const Homepage = () => {
               </button>
             </div>
             {array?.map((post, i) => (
-              <Post post={post} />
+              <Post post={post} key={i} />
             ))}
           </div>
         </div>

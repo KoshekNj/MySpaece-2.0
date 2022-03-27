@@ -1,37 +1,45 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-
+import { userContext } from "../../userContext";
+import { useContext } from "react";
 import "./Header.scss";
-import reklamaHome from "../../Ads/Banner2.png";
-import reklamaFeed from "../../Ads/Banner1.png";
-import reklamaSearch from "../../Ads/Banner3.png";
+import reklama1 from "../../Ads/Banner2.png";
+import reklama2 from "../../Ads/Banner1.png";
+import reklama3 from "../../Ads/Banner3.png";
+import reklama4 from "../../Ads/Banner4.png";
+import icon1 from "../../Images/computer icon.png";
+import icon2 from "../../Images/editprofile.png";
+import icon3 from "../../Images/friends.png";
+import icon4 from "../../Images/profile2.png"
 
-const links = [
-  {
-    label: "My profile",
-    link: "/home",
-    icon: "profile2.png",
-  },
-  {
-    label: "Worldwide feed",
-    link: "/feed",
-    icon: "computer icon.png",
-  },
-  {
-    label: "Contact center",
-    link: "/search",
-    icon: "friends.png",
-  },
-  {
-    label: "Profile costumization",
-    link: "/Profile costumization",
-    icon: "editprofile.png",
-  },
-];
-
-const ads = [reklamaHome, reklamaFeed, reklamaSearch];
+const ads = [reklama1, reklama2, reklama3, reklama4];
 
 const Header = ({ page }) => {
+
+  const {user,setUser}=useContext(userContext);
+
+  const links = [
+    {
+      label: "My profile",
+      link: `/home/${user}`,
+      icon: icon4,
+    },
+    {
+      label: "Worldwide feed",
+      link: `/feed/${user}`,
+      icon: icon3,
+    },
+    {
+      label: "Contact center",
+      link: `/search/${user}`,
+      icon: icon1,
+    },
+    {
+      label: "Profile costumization",
+      link: `/edit/${user}`,
+      icon: icon2,
+    },
+  ];
   return (
     <>
       <div className="header">

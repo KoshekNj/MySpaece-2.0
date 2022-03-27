@@ -14,11 +14,10 @@
   h2 {
     width: fit-content;
     margin: 10px;
-    font-family: Orbitron;
-    font-style: normal;
+    font-family: $font-user;
     font-weight: normal;
     font-size: 1rem;
-    color: #ffffff;
+    color: $color-p;
   }
 
   &__top {
@@ -26,6 +25,16 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+
+    .ad1 {
+      align-self: baseline;
+      object-fit: cover;
+      border: 5px solid grey;
+      margin: 3rem 20rem 0rem 5rem;
+      width: 682px;
+      height: 101px;
+    }
+
   }
 
   &__links {
@@ -35,4 +44,6 @@
   &__link {
     @include links;
   }
+  
 }
+

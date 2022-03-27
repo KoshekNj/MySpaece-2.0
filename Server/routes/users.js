@@ -15,8 +15,13 @@ router.get('/', async (req, res) => {
 })
 
 // Getting One
-router.get('/:id', getUser, (req, res) => {
-    res.json(res.user)
+router.get('/:username', getUser, (req, res) => {
+    try {
+        res.status(200).json(res.user);
+      } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+      }
 })
 
 // Creating one
@@ -80,6 +85,7 @@ router.post("/login", async (req, res) => {
          
         });
 
+
 // Updating One
 /*router.patch('/:id', getUser, async (req, res) => {
     if (req.body.username != null) {
@@ -97,7 +103,7 @@ router.post("/login", async (req, res) => {
 })*/
 
 // Deleting One
-router.delete('/:id', getUser, async (req, res) => {
+router.delete('/:username', getUser, async (req, res) => {
     try {
         await res.user.remove()
         res.json({ message: 'Deleted User' })
@@ -109,7 +115,7 @@ router.delete('/:id', getUser, async (req, res) => {
 async function getUser(req, res, next) {
     let user
     try {
-        user = await User.findById(req.params.id)
+        user = await User.findOne({ username: req.params.username });
         if (user == null) {
             return res.status(404).json({ message: 'Cannot find user' })
         }

@@ -1,13 +1,14 @@
 import * as React from "react";
-import { useState } from "react";
+import { useContext} from "react";
 import "./signUp.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import {userContext} from "../../userContext";
 
 const SignUp = () => {
   const navigate = useNavigate();
-
+  const {user,setUser}=useContext(userContext);
   const register = async (values) => {
     try {
       const response = await axios.post(
@@ -20,8 +21,8 @@ const SignUp = () => {
         },
         { withCredentials: true }
       );
-
-      navigate(`/home`);
+      setUser(response.data.username);
+      navigate(`/home/${response.data.username}`);
     } catch (error) {
       console.log(error.response.data.message);
       alert(error.response.data.message);
@@ -65,7 +66,7 @@ const SignUp = () => {
             <button type="submit">Create my account</button>
           </Form>
         </Formik>
-        <div className="log-in__link">
+        <div className="sign-up__link">
           <h3>Have an account already?</h3>
           <Link to="/"> LogIn</Link>
         </div>

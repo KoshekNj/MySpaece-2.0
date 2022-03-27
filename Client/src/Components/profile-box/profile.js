@@ -1,15 +1,22 @@
 import * as React from "react";
-import { useState } from "react";
+import { useContext } from "react";
 import "./profile.scss";
+import profilePic from "../../Images/missgowon.jpg";
+import { userContext } from "../../userContext"; 
 
 const ProfileBox = () => {
+
+  const {user}=useContext(userContext);
+
+
+
   return (
     <>
       <div className="profile">
         <div className="profile__top">
-          <img src="missgowon.jpg" alt="Profilna"></img>
+          <img src={profilePic} alt="Profilna"></img>
           <div className="profile__info">
-            <p>Username</p>
+            <p>{user}</p>
             <p>Age</p>
             <p>Country</p>
             <p>Gender</p>

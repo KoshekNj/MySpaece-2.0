@@ -12,7 +12,6 @@
 }
 
 .feed__links {
-  //mixin
   @include links-container;
 }
 
@@ -26,14 +25,6 @@
 
 .feed__links--third {
   @include links;
-}
-
-.ad2 {
-  object-fit: cover;
-  margin: 3rem 20rem 0rem 5rem;
-  width: 682px;
-  height: 101px;
-  border: 5px solid grey;
 }
 
 .feed__bottom {

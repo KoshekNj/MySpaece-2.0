@@ -9,28 +9,30 @@
   font-size: 13px;
   line-height: 16px;
   color: $color-p;
-}
 
-.post__blog-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 1rem;
-
-  h2 {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 40px;
+  &__blog-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+  
+    h2 {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 40px;
+    }
   }
-}
-
-.post__blog-text {
-  padding: 1rem;
-
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    margin-top: 10px;
+  
+  &__blog-text {
+    padding: 1rem;
+  
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      margin-top: 10px;
+    }
   }
+  
 }
+

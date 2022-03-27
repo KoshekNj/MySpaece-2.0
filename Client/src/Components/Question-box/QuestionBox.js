@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import "./QuestionBox.scss";
+import gif from "../../Images/ohsogothic.gif";
 
 const QuestionBox = () => {
   return (
@@ -11,7 +12,7 @@ const QuestionBox = () => {
       <p className="quiz__a--second">Doja cat</p>
       <p className="quiz__q--third">Favourite song:</p>
       <p className="quiz__a--third">Ut ac tortor libero </p>
-      <img src="ohsogothic.gif" alt="gif"></img>
+      <img src={gif} alt="gif"></img>
     </div>
   );
 };

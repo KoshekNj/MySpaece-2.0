@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Formik, Field, Form } from "formik";
 import "./LogInStyle.scss";
+import {userContext} from "../../userContext";
 
 const LogIn = () => {
   const navigate = useNavigate();
-
+  const {user,setUser}=useContext(userContext);
+  console.log(user);
   const login = async (values) => {
     await axios
       .post(
@@ -17,9 +19,10 @@ const LogIn = () => {
         },
         { withCredentials: true }
       )
-      .then((resposnse) => {
-        console.log(resposnse.data);
-        navigate("/home");
+      .then((response) => {
+        setUser(response.data.username);
+        console.log(response.data);
+        navigate(`/home/${response.data.username}`);
       })
       .catch((err) => {
         console.log(err);

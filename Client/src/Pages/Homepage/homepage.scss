@@ -1,85 +1,70 @@
 @import "./src/components/_mixins";
 @import "./src/components/_variables";
 
-.home {
-  display: flex;
-  flex-direction: column;
-}
 
-.home__bottom {
+.home{
   display: flex;
   flex-direction: row;
   width: 100%;
-}
-.home__left-side {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-}
 
-.home__reklama {
-  //nisam mogla nazvat home__ad??? Tad mi nije radilo lol wild
-  display: block;
-  width: fit-content;
-  height: fit-content;
-  margin: 35px 35px 15px 35px;
-  border: 8px solid #746e6e;
-  box-sizing: border-box;
-
-  img {
-    width: 19rem;
-    height: 19rem;
+  &__left-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
   }
-}
 
-.home__right-side {
-  align-self: flex-start;
-  display: flex;
-  flex-direction: column;
-  height: 10rem;
-  width: 50%;
-  height: 100%;
-
-  .home__create-post {
+  &__reklama {
+    //nisam mogla nazvat home__ad??? Tad mi nije radilo lol wild
+    display: block;
+    width: fit-content;
     height: fit-content;
-    margin: 0px 70px 50px 0px;
-    background: $color-posts;
-    box-shadow: $shadow;
-    backdrop-filter: blur(4px);
-
-    input {
-      background: $color-input;
-      box-shadow: $shadow;
-      border-radius: 6px;
-      height: fit-content;
-      margin: 20px 20px 0px 20px;
-      width: 90%;
-    }
-
-    input,
-    input::-webkit-input-placeholder {
-      font-family: Orbitron;
-      font-size: 13px;
-      line-height: 3;
-      color: $color-p;
-      padding-left: 5px;
-    }
-
-    button {
-      width: 5rem; //mixin i za signup triba
-      margin: 15px 0px 15px 0px;
-      @include button;
+    margin: 35px 35px 15px 35px;
+    border: 8px solid grey;
+    box-sizing: border-box;
+  
+    img {
+      width: 19rem;
+      height: 19rem;
     }
   }
+
+  &__right-side {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+    width: 50%;
+    height: 100%;
+  
+    .home__create-post {
+      height: fit-content;
+      margin: 0px 70px 50px 0px;
+      background: $color-posts;
+      box-shadow: $shadow;
+      backdrop-filter: blur(4px);
+  
+      input {
+        background: $color-input;
+        
+      }
+      input,
+      input::-webkit-input-placeholder {
+        @include input2;
+      }
+  
+      button {
+        width: 5rem; //mixin i za signup triba
+        margin: 15px 0px 15px 0px;
+        @include button;
+      }
+    }
+  }
+  
+  
 }
 
-.ad1 {
-  align-self: baseline;
-  object-fit: cover;
-  border: 5px solid grey;
-  margin: 3rem 20rem 0rem 5rem;
-  width: 682px;
-  height: 101px;
-}
+
+
+

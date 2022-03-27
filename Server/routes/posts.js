@@ -7,7 +7,7 @@ const User = require('../models/user')
 router.get("/:author", async (req, res) => {
     try {
         const posts = await Post.find({ author: req.params.author })
-        return res.status(200).json(res.posts);
+        return res.status(200).json(posts);
       } catch (error) {
         console.log(error);
         return res.status(500).json({ message: error });

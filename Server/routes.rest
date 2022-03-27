@@ -6,12 +6,12 @@ GET http://localhost:8080/users/Maris
 
 ###
 
-POST http://localhost:8080/users
+POST http://localhost:8080/users/register
 Content-Type: application/json
 
 {
-    "username":"Koshek",
-    "email":"tea.zup@gmail.com",
+    "username":"Koshefggfdk",
+    "email":"tea.zdfssfdup@gmail.com",
     "password":"lillol123"
 }
 
@@ -24,12 +24,16 @@ POST http://localhost:8080/users
 
 ###
 
-POST http://localhost:8080/posts
+POST http://localhost:8080/posts/create
 Content-Type: application/json
 
 {
-    "author":"Maris",
+    "author":"Tea",
     "title":"Hey",
-    "text":"wassup",
+    "text":"wassupgdg",
     "date":"1.1.2022."
 }
+
+###
+
+GET http://localhost:8080/posts/Tea

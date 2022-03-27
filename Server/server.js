@@ -20,5 +20,8 @@ app.use(
 const usersRouter = require('./routes/users')
 app.use('/users', usersRouter)
 
+const postsRouter = require('./routes/posts')
+app.use('/posts', postsRouter)
+
 app.listen(8080, () => console.log('Server started'))
 

@@ -21,3 +21,15 @@ DELETE http://localhost:8080/users/62262f73e7bbf240cc85b2e4
 
 ###
 POST http://localhost:8080/users
+
+###
+
+POST http://localhost:8080/posts
+Content-Type: application/json
+
+{
+    "author":"Maris",
+    "title":"Hey",
+    "text":"wassup",
+    "date":"1.1.2022."
+}

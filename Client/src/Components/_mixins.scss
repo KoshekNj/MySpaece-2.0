@@ -1,47 +1,104 @@
+@import "./src/components/_variables";
 
-@mixin links{
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
-    width:200px;
-    height:1.5rem;
+@mixin links {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  width: 200px;
+  height: 1.5rem;
 }
 
-@mixin links-container{
-    margin: 3rem 1rem 1rem 1rem;
-    align-self: flex-start;
-    display:flex;
-    flex-direction: column;
-    height:8rem;
-    width: fit-content;
+@mixin links-container {
+  margin: 3rem 1rem 1rem 1rem;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 8rem;
+  width: fit-content;
 
-    img{
-        margin-right: 0.5rem;
-        width: 1.5rem;
-        height: 1.5rem;   
-    }
+  img {
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 
-    p{
-        font-family: $font-user;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 18px;
-        color: $color-p;
-    }
-}
-
-@mixin button{
-    height: fit-content;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    font-family: Source Sans Pro;
+  p {
+    font-family: $font-user;
     font-style: normal;
-    font-weight: bold;
-    font-size:13px;
-    line-height: 28px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-p;
+  }
+}
+
+@mixin button {
+  height: fit-content;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 28px;
+  text-align: center;
+  color: $color-p;
+  font-weight: bolder;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
+    0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+}
+
+@mixin input2{
+    box-shadow: $shadow;
+        border-radius: 6px;
+        height: fit-content;
+        margin: 20px 20px 0px 20px;
+        width: 90%;
+        font-family: Orbitron;
+        font-size: 13px;
+        line-height: 3;
+        color: $color-p;
+        padding-left: 5px;
+}
+
+@mixin h1{
+  font-family: Orbitron;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 76px;
+      line-height: 95px;
+      color: $color-p;
+      text-align: center;
+}
+
+@mixin h2{
+  margin-bottom: 35px;
+      font-family: Orbitron;
+      font-style: normal;
+      font-size: 29px;
+      line-height: 36px;
+      text-align: center;
+      color: $color-p;
+}
+
+@mixin input1{
+  display: block;
+      position: center;
+      width: 423px;
+      height: 29px;
+      padding: 10px;
+      margin-top: 35px;
+      font-family: Orbitron;
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.7);
+}
+
+@mixin redirectLink{
+  display: inline;
+    width: fit-content;
+    font-family: Orbitron;
+    font-size: 16px;
+    line-height: 31px;
     text-align: center;
-    color: #E9F2F4;
-    font-weight: bolder;
-     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    color: $color-p;
 }

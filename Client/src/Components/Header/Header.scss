@@ -1,23 +1,49 @@
+@import "./src/components/_variables";
+@import "./src/components/_mixins";
 
-@import './src/components/_variables';
-.header2{
-    position:fixed;
-    width: 100%;
-    height:2rem;
-    display:flex;
-    background-color: $color-profile!important;
+.header {
+  position: fixed;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  background-color: $color-profile !important;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    width: fit-content;
+    margin: 10px;
+    font-family: $font-user;
+    font-weight: normal;
+    font-size: 1rem;
+    color: $color-p;
+  }
+
+  &__top {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
 
-    h2{
-        width:fit-content;
-        margin: 10px;
-        font-family: Orbitron;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1rem;
-        color: #FFFFFF;
+    .ad1 {
+      align-self: baseline;
+      object-fit: cover;
+      border: 5px solid grey;
+      margin: 3rem 20rem 0rem 5rem;
+      width: 682px;
+      height: 101px;
     }
+
+  }
+
+  &__links {
+    @include links-container;
+  }
+
+  &__link {
+    @include links;
+  }
+  
 }
 

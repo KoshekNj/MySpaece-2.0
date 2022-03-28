@@ -1,77 +1,45 @@
-@import './src/components/_mixins';
+@import "./src/components/_mixins";
+@import "./src/components/_variables";
 
-.sign-up{
+.sign-up {
   display: flex;
   justify-content: center;
-}
-.sign-up__container{
+
+  &__container {
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     max-height: 5rem;
-
-    h1{
-    font-family: Orbitron;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 76px;
-    line-height: 95px;
-    
-    color: #F2FBFD;
-    text-align: center;
-    }
-
-  h2{
-      margin-bottom: 35px;
-      font-family: Orbitron;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 29px;
-      line-height: 36px;
-      text-align: center;
-      
-      color: #FFFFFF;
+  
+    h1 {
+      @include h1;
     }
   
-    input{ //mixin
-      flex-grow: 1;
-      display: block;
-      position: center;
-      width: 423px;
-      height: 29px;
-      padding:10px;
-      margin-top: 35px;
-      background: rgba(196, 196, 196, 0.7);
-      border: 1.5px solid #B87979;
+    h2 {
+      @include h2;
+    }
+  
+    input {
+      background: $color-input1;
+      border: 1.5px solid $color-border;
       border-radius: 15px;
-      }
-
-  input,  
-  input::-webkit-input-placeholder { //mixin
-      font-family: Orbitron;
-      font-size: 13px;  
-      color: rgba(0, 0, 0, 0.7);
-  }  
-  button{
-    width: 10rem; 
-    margin: 50px 50px 30px 50px;
-    @include button;
+    }
+  
+    input,
+    input::-webkit-input-placeholder {
+      @include input1;
+    }
+    button {
+      width: 10rem;
+      margin: 50px 50px 30px 50px;
+      @include button;
+    }
   }
-    
+  
+  &__link {
+    @include redirectLink;
+  
 }
-  
-
-.log-in__link{
-    display: inline;
-    width: fit-content;
-    font-family: Orbitron;
-    font-size: 16px;
-    line-height: 31px;
-    text-align: center;
-    color: #FFFFFF;
-  }
-
-
-  
+}

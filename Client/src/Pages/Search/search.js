@@ -9,14 +9,15 @@ import { userContext } from "../../userContext";
 const Search = () => {
   let pageName = "Contact center";
   const navigate = useNavigate();
-  const {user, setUser}=useContext(userContext);
+  const { user, setUser } = useContext(userContext);
+  const username = "Bff4eva";
   const messageGo = () => {
     alert("You dont need them");
   };
-  
+
   useEffect(() => {
-    if(user===null)
-          navigate(`/`); 
+    if (user === null)
+      navigate(`/`);
   })
   return (
     <>
@@ -34,7 +35,9 @@ const Search = () => {
           </div>
           <h2>Friend List</h2>
           <div className="search__bottom--friend">
-            <Friend/>
+            <Link to={`/profile/${username}`}>
+              <Friend />
+            </Link>
           </div>
         </div>
       </div>

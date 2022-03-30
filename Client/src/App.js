@@ -3,13 +3,15 @@ import Homepage from "./Pages/Homepage/homepage";
 import SignUp from "./Pages/Sign up/SignUp";
 import Feed from "./Pages/Feed/feed";
 import Search from "./Pages/Search/search";
-import {userContext} from "./userContext";
-import {useState, useMemo} from 'react';
+import Profile from "./Pages/Profile/userProfile"
+import Edit from "./Pages/Costumization/editProfile"
+import { userContext } from "./userContext";
+import { useState, useMemo } from 'react';
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 
 function App() {
 
-  const [user, setUser]=useState(null);
+  const [user, setUser] = useState(null);
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (
@@ -22,9 +24,11 @@ function App() {
             <Route path="/home/:username" element={<Homepage />} />
             <Route path="/feed/:username" element={<Feed />} />
             <Route path="/search/:username" element={<Search />} />
+            <Route path="/profile/:username" element={<Profile />} />
+            <Route path="/edit/:username" element={<Edit />} />
           </Routes>
         </userContext.Provider>
-        </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }

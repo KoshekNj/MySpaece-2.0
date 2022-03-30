@@ -16,7 +16,9 @@ const ads = [reklama1, reklama2, reklama3, reklama4];
 
 const Header = ({ page }) => {
 
-  const {user,setUser}=useContext(userContext);
+  const { user, setUser } = useContext(userContext);
+
+  const adSrc = React.useMemo(() => ads[Math.floor(Math.random() * ads.length)], [])
 
   const links = [
     {
@@ -60,7 +62,7 @@ const Header = ({ page }) => {
             ))}
         </div>
         <img
-          src={ads[Math.floor(Math.random() * ads.length)]}
+          src={adSrc}
           alt="Reklama"
           className="ad1"
         ></img>

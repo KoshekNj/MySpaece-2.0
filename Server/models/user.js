@@ -18,7 +18,39 @@ const userSchema = new mongoose.Schema({
         type: String,
         min: 6,
         required: true,
-    }
+    },
+    profilePic: {
+        type: String,
+    },
+    age: {
+        type: String,
+    },
+
+    country: {
+        type: String,
+
+    },
+    gender: {
+        type: String,
+
+    },
+    description: {
+        type: String,
+
+    },
+    band: {
+        type: String,
+
+    },
+    singer: {
+        type: String,
+    },
+    song: {
+        type: String,
+    },
+    gif: {
+        type: String,
+    },
 })
 
 module.exports = mongoose.model('User', userSchema)

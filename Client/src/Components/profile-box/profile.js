@@ -1,14 +1,30 @@
 import * as React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./profile.scss";
 import profilePic from "../../Images/missgowon.jpg";
-import { userContext } from "../../userContext"; 
+import { userContext } from "../../userContext";
+import { renderMatches } from "react-router-dom";
+import axios from "axios";
 
-const ProfileBox = () => {
+const ProfileBox = ({ username }) => {
 
-  const {user}=useContext(userContext);
+  const { user } = useContext(userContext);
+  const [array, setArray] = useState([]);
 
-
+  React.useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8080/users/${username}`);
+        console.log(res);
+        console.log(res.data);
+        setArray(res.data);
+        console.log(array);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUser();
+  }, []);
 
   return (
     <>
@@ -16,18 +32,15 @@ const ProfileBox = () => {
         <div className="profile__top">
           <img src={profilePic} alt="Profilna"></img>
           <div className="profile__info">
-            <p>{user}</p>
-            <p>Age</p>
-            <p>Country</p>
-            <p>Gender</p>
+            <p>{username}</p>
+            <p>{array.age}</p>
+            <p>{array.country}</p>
+            <p>{array.gender}</p>
           </div>
         </div>
         <div className="profile__description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            {array.description}
           </p>
         </div>
       </div>

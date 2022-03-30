@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
     author: {
         type: String,
         required: true,
-        unique:false,
+        unique: false,
     },
 
     title: {
@@ -15,10 +15,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    date:{
-        type:Date,
+    date: {
+        type: String,
     }
-    
+
 })
 
 module.exports = mongoose.model('Post', postSchema)

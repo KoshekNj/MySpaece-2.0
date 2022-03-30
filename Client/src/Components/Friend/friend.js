@@ -6,8 +6,8 @@ const Friend = () => {
     message2: "",
   });
   const [value, setValue] = React.useState({
-    profilePic: image, 
-    username: "Your BFF 4eva",
+    profilePic: image,
+    username: "YourBFF4eva",
     age: "Y̢̬̙̝̌̆͗͌̋ͅo̢͇͈͓̳̫̗̦͇͓͒̈́͂́͛͌́́̋̽̉͜ǹ̹̲̬̝͐͒̇ ̺̰͊̇͂͢͜͞J̧̺̹̋̾̓͋͜ū̘̼̻̐́̂ ͖͓̺̭͆̿̄͘͜͢͞͡Ņ̰̙͎̪̱͎̹̆̏̋̃̑͆͌͡ǐ̛̦͙͉̟̻̭̰͖̱̈́͒̑̂̎͗̽͒͜͞ͅ",
     country: "[Redacted]",
     pronouns: ":)/:(",

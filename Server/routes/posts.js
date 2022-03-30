@@ -6,27 +6,27 @@ const User = require('../models/user')
 //Getting all posts from user
 router.get("/:author", async (req, res) => {
     try {
-        const posts = await Post.find({ author: req.params.author })
+        const posts = await (await Post.find({ author: req.params.author })).reverse()
         return res.status(200).json(posts);
-      } catch (error) {
+    } catch (error) {
         console.log(error);
         return res.status(500).json({ message: error });
-      }
-    });
+    }
+});
 
 //Create post 
 
 router.post('/create', async (req, res) => {
-        try {
+    try {
 
         const post = new Post({
-        author: req.body.author,
-        title: req.body.title,
-        text: req.body.text,
-        date: req.body.date
-        
-    })
-    
+            author: req.body.author,
+            title: req.body.title,
+            text: req.body.text,
+            date: req.body.date
+
+        })
+
         const newPost = await post.save()
         res.status(201).json(newPost)
     } catch (err) {

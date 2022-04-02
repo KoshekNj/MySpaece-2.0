@@ -7,25 +7,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   h2{
     @include h2;
   }
+
   button {
       width:20rem;
       font-family: Orbitron;
       font-style: normal;
       height: 3rem;
       background: transparent;
-    //border-radius: 15px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 28px;
-    text-align: center;
-    color: $color-p;
-    font-weight: bolder;
-    border:0px;
-    margin-bottom: 1.5rem;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 28px;
+      text-align: center;
+      color: $color-p;
+      font-weight: bolder;
+      border:0px;
+      margin-bottom: 1.5rem;
   }
 
   button:hover{
@@ -34,39 +35,38 @@
     0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     }
   
-  .edit__profile {
-  display: flex;
-  flex-direction: column;
+  &__profile {
+  
   margin: 0px 35px 15px 35px;
   width: 60%;
   min-height: 300px;
   background-color: $color-posts;
 
-  button{
-    width:5rem;
-    @include button;
-  }
+    button{
+      width:5rem;
+      @include button;
+    }
 
-  p {
-    width: fit-content;
-    text-align: center;
-    margin: 20px 10px;
-    font-family: $font-pc;
-    
-  }
+    p {
+      width: fit-content;
+      text-align: center;
+      margin: 20px 10px;
+      font-family: $font-pc;
+      
+    }
 
-  img {
-    object-fit: cover;
-    margin: 20px;
-    width: 125px;
-    height: 160px;
-  }
+    img {
+      object-fit: cover;
+      margin: 20px;
+      width: 125px;
+      height: 160px;
+    }
 
-      input { //znam da pari glupo input i input, input::... al sjebe mi boje ako stavim sve skupa XD 
-      background: $color-input1;
-      border: 1.5px solid $color-border;
-      border-radius: 15px;
-      margin:15px;
+    input { //znam da pari glupo input i input, input::... al sjebe mi boje ako stavim sve skupa XD 
+    background: $color-input1;
+    border: 1.5px solid $color-border;
+    border-radius: 15px;
+    margin:15px;
  
     }
 
@@ -76,7 +76,7 @@
     }
     
   
-  &--top {
+  &--form {
     display: flex;
     flex-direction: row;
     color: $color-p;
@@ -84,7 +84,7 @@
  
 }
 
-.edit__quiz{
+&__quiz{
   background: $color-posts;
   padding: 10px;
   text-align: center;
@@ -98,20 +98,23 @@
   justify-content: space-around;
   align-items: center;
 
-  .edit__quiz--questions{
+  &--questions{
     width: 30%;
     height: 100%;
     padding-bottom:135px;
+
     p{
       margin:40px;
     }
   }
-.edit__quiz--answers{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    width: 70%;
+
+  &--answers{
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      width: 70%;
   }
+
   button{
     width:5rem;
     @include button;
@@ -126,21 +129,18 @@
     height: 5rem;
   }
     
- input {
-
-    background: $color-input1;
-      border: 1.5px solid $color-border;
-      border-radius: 15px;
-  
-
-    
+  input {
+        background: $color-input1;
+        border: 1.5px solid $color-border;
+        border-radius: 15px;
   }
+
   input,
-    input::-webkit-input-placeholder {
+  input::-webkit-input-placeholder {
       margin-left: 0px;
       @include input1;
-    }
-  
-}
+ }
+    
+  }
 }
 

@@ -2,7 +2,7 @@ GET http://localhost:8080/users
 
 ###
 
-GET http://localhost:8080/users/Koshek
+GET http://localhost:8080/users/luka
 
 ###
 
@@ -10,14 +10,22 @@ POST http://localhost:8080/users/register
 Content-Type: application/json
 
 {
-    "username":"Koshefggfdk",
-    "email":"tea.zdfssfdup@gmail.com",
-    "password":"lillol123"
+    "age": "unknown",
+    "band": "unknown",
+    "confirmPassword": "1234",
+    "country": "unknown",
+    "description": "You haven't made a description yet",
+    "email": "ballsd ale",
+    "gender": "unknown",
+    "password": "1234",
+    "singer": "unknown",
+    "song": "unknown",
+    "username": "dfkeo"
 }
 
 ###
 
-DELETE http://localhost:8080/users/Your BFF 4eva
+DELETE http://localhost:8080/users/luka
 
 ###
 POST http://localhost:8080/users
@@ -49,3 +57,7 @@ Content-Type: application/json
     "singer":"tea.zdfssfdup@gmail.com",
     "song":"lillol123"
 }
+
+###
+
+GET http://localhost:8080/users/friends/luka

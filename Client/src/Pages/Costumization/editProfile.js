@@ -26,10 +26,7 @@ const EditProfile = () => {
         const getPosts = async () => {
             try {
                 const res = await axios.get(`http://localhost:8080/posts/${username}`);
-                console.log(res);
-                console.log(res.data);
                 setArray(res.data);
-                console.log(array);
             } catch (error) {
                 console.log(error);
             }
@@ -77,7 +74,7 @@ const EditProfile = () => {
                 }{selectedTab === 0 &&
 
                     <div className="edit__profile">
-                        <div className="edit__profile--top">
+                        <div className="edit__profile--form">
                             <img src={profilePic} alt="Profilna"></img>
 
 

@@ -51,6 +51,9 @@ const userSchema = new mongoose.Schema({
     gif: {
         type: String,
     },
+    friends: {
+        type: [],
+    },
 })
 
 module.exports = mongoose.model('User', userSchema)

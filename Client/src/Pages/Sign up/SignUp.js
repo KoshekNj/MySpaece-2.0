@@ -1,14 +1,14 @@
 import * as React from "react";
-import { useContext} from "react";
+import { useContext } from "react";
 import "./signUp.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import {userContext} from "../../userContext";
+import { userContext } from "../../userContext";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const {user,setUser}=useContext(userContext);
+  const { user, setUser } = useContext(userContext);
   const register = async (values) => {
     try {
       const response = await axios.post(

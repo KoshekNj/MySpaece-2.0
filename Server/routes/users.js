@@ -43,7 +43,15 @@ router.post('/register', async (req, res) => {
             const user = new User({
                 username: req.body.username,
                 email: req.body.email,
-                password: hashedPassword
+                password: hashedPassword,
+                age: "unknown",
+                country: "unknown",
+                gender: "unknown",
+                description: "You haven't made a description yet",
+                band: "unknown",
+                singer: "unknown",
+                song: "unknown",
+                friends: ["Bff4eva"],
             })
 
             const newUser = await user.save()
@@ -85,23 +93,6 @@ router.post("/login", async (req, res) => {
 
 });
 
-
-// Updating One
-/*router.patch('/:id', getUser, async (req, res) => {
-    if (req.body.username != null) {
-        res.subscriber.username = req.body.username
-    }
-    if (req.body.username != null) {
-        res.subscriber.username = req.body.username
-    }
-    try {
-        const updatedUser = await res.user.save()
-        res.json(updatedUser)
-    } catch (err) {
-        res.status(400).json({ message: err.message })
-    }
-})*/
-
 //UPDATE USER
 router.put("/:username", async (req, res) => {
     try {
@@ -130,6 +121,23 @@ router.delete('/:username', getUser, async (req, res) => {
         res.status(500).json({ message: err.message })
     }
 })
+
+// Get friends
+router.get("/friends/:username", async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.params.username });
+        const friends = await Promise.all(
+            user.friends.map(
+                async (friend) => await User.findOne({ username: friend })
+            )
+        );
+        res.status(200).json(friends);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
+
 
 async function getUser(req, res, next) {
     let user

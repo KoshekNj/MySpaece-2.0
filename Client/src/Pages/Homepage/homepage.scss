@@ -2,7 +2,7 @@
 @import "./src/components/_variables";
 
 
-.home{
+.home {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -15,6 +15,8 @@
     flex-wrap: nowrap;
   }
 
+
+
   &__reklama {
     //nisam mogla nazvat home__ad??? Tad mi nije radilo lol wild
     display: block;
@@ -23,10 +25,12 @@
     margin: 35px 35px 15px 35px;
     border: 8px solid grey;
     box-sizing: border-box;
-  
+
     img {
       width: 19rem;
       height: 19rem;
+
+
     }
   }
 
@@ -37,23 +41,24 @@
     height: 10rem;
     width: 50%;
     height: 100%;
-  
+
     .home__create-post {
       height: fit-content;
       margin: 0px 70px 50px 0px;
       background: $color-posts;
       box-shadow: $shadow;
       backdrop-filter: blur(4px);
-  
+
       input {
         background: $color-input;
-        
+
       }
+
       input,
       input::-webkit-input-placeholder {
         @include input2;
       }
-  
+
       button {
         width: 5rem; //mixin i za signup triba
         margin: 15px 0px 15px 0px;
@@ -61,10 +66,6 @@
       }
     }
   }
-  
-  
+
+
 }
-
-
-
-

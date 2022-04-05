@@ -2,7 +2,7 @@ GET http://localhost:8080/users
 
 ###
 
-GET http://localhost:8080/users/luka
+GET http://localhost:8080/users/Tea
 
 ###
 

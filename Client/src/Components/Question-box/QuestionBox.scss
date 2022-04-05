@@ -21,6 +21,13 @@
     "question3 answer3 "
     "picture picture ";
 
+  @media (max-width: $sm) {
+    display: block;
+    width: 13rem;
+
+  }
+
+
   img {
     align-self: center;
     justify-self: center;
@@ -33,23 +40,23 @@
   &__a--first {
     grid-area: answer1;
   }
-  
+
   &__q--first {
     grid-area: question1;
   }
-  
+
   &__a--second {
     grid-area: answer2;
   }
-  
+
   &__q--second {
     grid-area: question2;
   }
-  
+
   &__a--third {
     grid-area: answer3;
   }
-  
+
   &__q--third {
     grid-area: question3;
   }

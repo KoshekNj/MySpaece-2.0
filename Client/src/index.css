@@ -22,6 +22,6 @@ a,
 a:hover,
 a:visited,
 a:active {
-  color: inherit;
+  /* color: inherit; */
   text-decoration: underline;
 }

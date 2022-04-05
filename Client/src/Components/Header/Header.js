@@ -54,10 +54,8 @@ const Header = ({ page }) => {
             .filter((link) => link.label !== page)
             .map((link, i) => (
               <Link to={link.link}>
-                <div className="header__link">
-                  <img src={link.icon} alt={`${link.label} icon`}></img>
-                  <p>{link.label}</p>
-                </div>
+                <img src={link.icon} alt={`${link.label} icon`}></img>
+                {link.label}
               </Link>
             ))}
         </div>

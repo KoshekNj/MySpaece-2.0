@@ -9,11 +9,20 @@
   min-height: 300px;
   background-color: $color-posts;
 
+  @media (max-width: $sm) {
+    width: 13rem;
+    max-height: 200px;
+  }
+
   p {
     text-align: center;
     margin: 20px;
     font-family: $font-pc;
     color: $color-p;
+
+    @media (max-width: $sm) {
+      margin: 5px;
+    }
   }
 
   img {
@@ -21,6 +30,11 @@
     margin: 20px;
     width: 125px;
     height: 160px;
+
+    @media (max-width: $sm) {
+      width: 75px;
+      height: 96px;
+    }
   }
 
   &__info {
@@ -28,16 +42,14 @@
     height: fit-content;
     width: 100%;
   }
-  
+
   &__top {
     display: flex;
     flex-direction: row;
   }
-  
+
   &__description {
     text-align: left;
     width: fit-content;
   }
 }
-
-

@@ -28,6 +28,10 @@
 
     &--friend {
       width: 50%;
+
+      @media (max-width: $sm) {
+        width: 70%;
+      }
     }
   }
 
@@ -36,20 +40,38 @@
     width: 50%;
     align-self: center;
     margin-bottom: 1rem;
+
+    @media (max-width: $sm) {
+      width: 70%;
+    }
+
     input {
       background: $color-input;
     }
-//
+
+    //
     input,
     input::-webkit-input-placeholder {
       @include input2;
+      font-size: 10px;
+
+      @media (max-width: $md) {
+        margin: 10px 0px 0px 0px;
+        font-size: 8px;
+      }
     }
 
     button {
-      width: 5rem; //mixin i za signup triba
+      width: 5rem;
       margin: 15px 0px 15px 0px;
       @include button;
+
+      @media (max-width: $sm) {
+
+        font-size: 8px;
+        max-width: 3rem;
+        max-height: 1.5rem;
+      }
     }
   }
 }
-

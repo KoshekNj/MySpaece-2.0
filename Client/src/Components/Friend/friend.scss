@@ -13,20 +13,38 @@
     max-height: 5rem;
     align-self: center;
     margin: 0rem 3rem 0rem 0rem;
+
+    @media (max-width: $sm) {
+      max-height: 3rem;
+      margin: 1rem;
+      width: 50px;
+    }
   }
 
   p {
     font-size: 13px;
     margin: 1rem;
+
+    @media (max-width: $md) {
+
+      font-size: 8px;
+
+    }
   }
 
   button {
     background-color: transparent;
     width: fit-content;
     height: fit-content;
-    margin-top: 1rem;
+    margin: 1rem 0rem 0rem 1rem;
     border-color: transparent;
     font-size: 20px;
     color: $color-p;
+
+    @media (max-width: $sm) {
+
+      font-size: 10px;
+
+    }
   }
 }

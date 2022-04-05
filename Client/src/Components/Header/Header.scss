@@ -4,7 +4,6 @@
 .header {
   position: fixed;
   width: 100%;
-  height: 2rem;
   display: flex;
   background-color: $color-profile !important;
   flex-direction: row;
@@ -15,35 +14,75 @@
     width: fit-content;
     margin: 10px;
     font-family: $font-user;
-    font-weight: normal;
     font-size: 1rem;
     color: $color-p;
   }
 
   &__top {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+
+    padding: 70px 10px 30px;
+
+    @media (min-width: $md) {
+      padding: 70px 30px 30px;
+      display: flex;
+      justify-content: space-between;
+    }
 
     .ad1 {
       align-self: baseline;
-      object-fit: cover;
       border: 5px solid grey;
-      margin: 3rem 20rem 0rem 5rem;
-      width: 682px;
-      height: 101px;
-    }
+      max-width: 350px;
 
+      @media (min-width: $md) {
+        max-width: 520px;
+        align-self: center;
+      }
+
+      @media (min-width: $lg) {
+        max-width: 620px;
+        margin: 0 auto;
+        transform: translateX(-100px);
+      }
+    }
   }
 
   &__links {
-    @include links-container;
-  }
 
-  &__link {
-    @include links;
+    @media (min-width: $sm) {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: $md) {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    img {
+      margin-right: 0.5rem;
+      width: 1rem;
+
+      @media (min-width: $md) {
+        width: 1.5rem;
+      }
+    }
+
+    a {
+      font-family: $font-user;
+      font-size: 10px;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      width: 150px;
+      text-decoration: none;
+      color: $color-p;
+
+      @media (min-width: $md) {
+        width: 200px;
+        font-size: 14px;
+      }
+    }
   }
-  
 }
-

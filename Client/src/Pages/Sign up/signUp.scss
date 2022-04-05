@@ -12,34 +12,46 @@
     align-items: center;
     flex-direction: column;
     max-height: 5rem;
-  
+
     h1 {
       @include h1;
     }
-  
+
     h2 {
       @include h2;
     }
-  
+
+    form {
+      display: flex;
+      flex-direction: column;
+      //margin: 30px 30px 0px 30px;
+      align-items: center;
+    }
+
     input {
       background: $color-input1;
       border: 1.5px solid $color-border;
       border-radius: 15px;
+
+      @media (min-width: $md) {
+        width: 423px;
+      }
     }
-  
+
     input,
     input::-webkit-input-placeholder {
       @include input1;
     }
+
     button {
       width: 10rem;
       margin: 50px 50px 30px 50px;
       @include button;
     }
   }
-  
+
   &__link {
     @include redirectLink;
-  
-}
+
+  }
 }

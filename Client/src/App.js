@@ -1,3 +1,5 @@
+import React, { useState, useMemo } from 'react';
+import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import LogIn from "./Pages/LogIn/LogIn";
 import Homepage from "./Pages/Homepage/homepage";
 import SignUp from "./Pages/Sign up/SignUp";
@@ -6,13 +8,29 @@ import Search from "./Pages/Search/search";
 import Profile from "./Pages/Profile/userProfile"
 import Edit from "./Pages/Costumization/editProfile"
 import { userContext } from "./userContext";
-import { useState, useMemo } from 'react';
-import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
+import { get, set } from "./utils/storage"
 
 function App() {
 
-  const [user, setUser] = useState(null);
+  function setUserState(userState) {
+    set({
+      key: 'userState',
+      value: userState
+    });
+  }
+
+  function getUserState() {
+    try {
+      const storedUser = get({ key: 'userState' });
+      return storedUser || null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  const [user, setUser] = useState(getUserState());
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+  React.useEffect(() => { setUserState(user) }, [user])
 
   return (
     <div className="App">

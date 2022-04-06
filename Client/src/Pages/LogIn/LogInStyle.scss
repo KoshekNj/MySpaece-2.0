@@ -30,6 +30,7 @@
       background: $color-input1;
       border: 1.5px solid $color-border;
       border-radius: 15px;
+      margin-bottom: 35px;
 
       @media (min-width: $md) {
         width: 423px;
@@ -43,7 +44,7 @@
 
     button {
       width: 5rem;
-      margin: 50px 50px 30px 50px;
+      margin: 30px 50px 30px 50px;
       @include button;
     }
   }

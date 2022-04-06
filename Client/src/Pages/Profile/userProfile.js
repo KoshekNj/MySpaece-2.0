@@ -7,14 +7,13 @@ import QuestionBox from "../../Components/Question-box/QuestionBox";
 import Post from "../../Components/Post/post";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { userContext } from "../../userContext";
 import krasAd from "../../Images/krasvjevericakvadrat.png";
 import { useParams } from "react-router-dom";
 
 
 const Profile = () => {
   let pageName = "Pc's profile";
-  const [array, setArray] = useState([]);
+  const [profile, setProfile] = useState([]);
   const location = useLocation();
   const { username } = useParams();
 
@@ -27,8 +26,8 @@ const Profile = () => {
         const res = await axios.get(`http://localhost:8080/posts/Bff4eva`);
         console.log(res);
         console.log(res.data);
-        setArray(res.data);
-        console.log(array);
+        setProfile(res.data);
+        console.log(profile);
       } catch (error) {
         console.log(error);
       }
@@ -49,7 +48,7 @@ const Profile = () => {
         </div>
 
         <div className="home__right-side">
-          {array?.map((post, i) => (
+          {profile?.map((post, i) => (
             <Post post={post} key={post._id} />
           ))}
         </div>

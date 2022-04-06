@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import Header from "../../Components/Header/Header";
 import "./feed.scss";
 import Post from "../../Components/Post/post";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { userContext } from "../../userContext";
 import axios from "axios";
 

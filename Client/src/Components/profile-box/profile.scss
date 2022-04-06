@@ -5,13 +5,12 @@
   display: flex;
   flex-direction: column;
   margin: 0px 35px 15px 35px;
-  width: 24rem;
+  width: 100%;
   min-height: 300px;
   background-color: $color-posts;
 
-  @media (max-width: $sm) {
-    width: 13rem;
-    max-height: 200px;
+  @media (min-width: $md) {
+    width: 24rem;
   }
 
   p {

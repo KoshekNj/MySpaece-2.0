@@ -21,7 +21,7 @@ const Search = () => {
     alert("You dont need " + userInput.username + ", they " + insultGenerator);
   };
 
-  const [array, setArray] = useState([]);
+  const [friend, setFriend] = useState([]);
 
   useEffect(() => {
 
@@ -33,8 +33,8 @@ const Search = () => {
         const res = await axios.get(`http://localhost:8080/users/friends/${user}`);
         console.log(res);
         console.log(res.data);
-        setArray(res.data);
-        console.log(array);
+        setFriend(res.data);
+        console.log(friend);
       }
       catch (error) {
         console.log(error);
@@ -69,7 +69,7 @@ const Search = () => {
           </div>
           <h2>Friend List</h2>
           <div className="search__bottom--friend">
-            {array?.map((friend, i) => (
+            {friend?.map((friend, i) => (
               <Link to={`/profile/${friend.username}`}>
                 <Friend friend={friend} key={friend._id} />
               </Link>

@@ -1,24 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
 import "./QuestionBox.scss";
-import gif from "../../Images/ohsogothic.gif";
 import axios from "axios";
-import gif1 from "../../Gifs/ohsogothic.gif";
-import gif2 from "../../Gifs/aboutme.gif";
-import gif3 from "../../Gifs/catstatic.gif";
-import gif4 from "../../Gifs/cheetos.gif";
-import gif5 from "../../Gifs/evil.gif";
-import gif6 from "../../Gifs/haveabeautifulday.gif";
-import gif7 from "../../Gifs/heathate.gif";
-import gif8 from "../../Gifs/ihateeveryone.gif";
-import gif9 from "../../Gifs/Iloveboys.gif";
-import gif10 from "../../Gifs/kissme.gif";
-import gif11 from "../../Gifs/latenights.gif";
-import gif12 from "../../Gifs/onlinennow.gif";
-import gif13 from "../../Gifs/onlinenow.gif";
-import gif14 from "../../Gifs/scary.gif";
-import gif15 from "../../Gifs/tarotsocials.gif";
-import gif16 from "../../Gifs/xoxo.gif";
+
 
 
 const QuestionBox = ({ username }) => {

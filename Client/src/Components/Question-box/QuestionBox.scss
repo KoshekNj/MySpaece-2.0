@@ -9,22 +9,21 @@
   font-family: $font-pc;
   color: $color-p;
   margin: 35px 35px 15px 35px;
-  width: 24rem;
+
   min-height: 200px;
-  display: grid;
-  justify-items: start;
-  grid-template-columns: 30% 70%;
-  grid-template-rows: 30px 30px 30px auto;
-  grid-template-areas:
-    "question1 answer1 "
-    "question2 answer2 "
-    "question3 answer3 "
-    "picture picture ";
+  display: block;
+  width: 100%;
 
-  @media (max-width: $sm) {
-    display: block;
-    width: 13rem;
-
+  @media (min-width: $md) {
+    width: 24rem;
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 30px 30px 30px auto;
+    grid-template-areas: "question1 answer1 "
+      "question2 answer2 "
+      "question3 answer3 "
+      "picture picture ";
   }
 
 
@@ -35,6 +34,10 @@
     grid-area: picture;
     width: 5.5rem;
     height: 5rem;
+
+    @media (max-width: $sm) {
+      margin-top: 20px;
+    }
   }
 
   &__a--first {

@@ -38,9 +38,9 @@ const Homepage = () => {
         const res = await axios.get(`http://localhost:8080/posts/${username}`);
         console.log(res);
         console.log(res.data);
-        setArray(res.data);
+        setUsers(res.data);
         setShouldFetch(false)
-        console.log(array);
+        console.log(users);
       } catch (error) {
         console.log(error);
       }
@@ -71,7 +71,7 @@ const Homepage = () => {
         alert("Error when posting");
       });
   };
-  const [array, setArray] = useState([]);
+
 
   return (
     <div>
@@ -124,7 +124,7 @@ const Homepage = () => {
               </Form>
             </div>
           </Formik>
-          {array?.map((post, i) => (
+          {users?.map((post, i) => (
             <Post post={post} key={post._id} />
           ))}
         </div>

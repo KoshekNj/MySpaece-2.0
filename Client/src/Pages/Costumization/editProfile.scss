@@ -12,6 +12,7 @@
   h2 {
     margin-top: 25px;
     @include h2;
+
   }
 
   button {
@@ -76,9 +77,6 @@
       border: 1.5px solid $color-border;
       border-radius: 15px;
       margin: 15px;
-
-
-
     }
 
     input,
@@ -91,13 +89,18 @@
     }
 
 
-    &--form {
+    &-form {
       display: flex;
       flex-direction: row;
       color: $color-p;
       width: 100%;
       flex-wrap: wrap;
       justify-content: center;
+
+      #profile {
+        visibility: hidden;
+        height: 0px;
+      }
 
       @media (min-width: $md) {
         input {
@@ -128,6 +131,25 @@
     justify-content: space-around;
     align-items: center;
 
+    &-field {
+      margin-top: 30px;
+
+      @media (min-width: $sm) {
+        display: flex;
+        align-items: center;
+
+        label,
+        input {
+          width: 50%;
+        }
+      }
+
+
+      label {
+        margin-right: 20px;
+        line-height: 2em;
+      }
+    }
 
     &--questions {
       width: 30%;

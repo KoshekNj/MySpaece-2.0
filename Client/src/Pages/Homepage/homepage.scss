@@ -7,12 +7,26 @@
   flex-direction: row;
   width: 100%;
 
+  @media (max-width: $md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__left-side {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
+
+    @media (max-width: $md) {
+      width: 70%;
+      align-self: center;
+      align-items: center;
+    }
+
   }
 
 
@@ -23,12 +37,20 @@
     width: fit-content;
     height: fit-content;
     margin: 35px 35px 15px 35px;
-    border: 8px solid grey;
-    box-sizing: border-box;
+
+
 
     img {
       width: 19rem;
       height: 19rem;
+      border: 8px solid grey;
+      box-sizing: border-box;
+
+      @media (max-width: $md) {
+        width: 0rem;
+        height: 0rem;
+        border: 0px solid grey;
+      }
 
 
     }
@@ -41,13 +63,26 @@
     height: 10rem;
     width: 50%;
     height: 100%;
+    padding: 0px 70px 50px 0px;
+
+    @media (max-width: $md) {
+      padding: 0px;
+      width: 70%;
+      align-self: center;
+      align-items: center;
+    }
 
     .home__create-post {
       height: fit-content;
-      margin: 0px 70px 50px 0px;
+
       background: $color-posts;
       box-shadow: $shadow;
       backdrop-filter: blur(4px);
+      margin-bottom: 50px;
+
+      @media (max-width: $md) {
+        margin-bottom: 30px;
+      }
 
       input {
         background: $color-input;
@@ -63,6 +98,7 @@
         width: 5rem; //mixin i za signup triba
         margin: 15px 0px 15px 0px;
         @include button;
+
       }
     }
   }

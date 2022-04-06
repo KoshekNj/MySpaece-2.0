@@ -20,7 +20,7 @@
 
   &__top {
 
-    padding: 70px 10px 30px;
+    padding: 55px 10px 30px;
 
     @media (min-width: $md) {
       padding: 70px 30px 30px;
@@ -48,16 +48,17 @@
 
   &__links {
 
-    @media (min-width: $sm) {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 40px;
-    }
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
 
     @media (min-width: $md) {
       display: block;
       margin-bottom: 0;
     }
+
 
     img {
       margin-right: 0.5rem;
@@ -66,16 +67,20 @@
       @media (min-width: $md) {
         width: 1.5rem;
       }
+
+      @media (max-width: $md) {
+        width: 2.5rem;
+      }
+
     }
 
     a {
       font-family: $font-user;
-      font-size: 10px;
+      font-size: 0px;
       line-height: 18px;
       display: flex;
       align-items: center;
       margin-bottom: 10px;
-      width: 150px;
       text-decoration: none;
       color: $color-p;
 
@@ -83,6 +88,8 @@
         width: 200px;
         font-size: 14px;
       }
+
+
     }
   }
 }

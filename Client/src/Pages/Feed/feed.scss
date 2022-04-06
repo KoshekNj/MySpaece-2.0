@@ -16,5 +16,7 @@
   width: 60%;
   margin-left: 4rem;
 
-
+  @media (max-width: $sm) {
+    margin: 0px;
+  }
 }

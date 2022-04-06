@@ -2,13 +2,9 @@ import * as React from "react";
 import { useState, useContext } from "react";
 import "./editProfile.scss";
 import Header from "../../Components/Header/Header";
-import ProfileBox from "../../Components/profile-box/profile";
-import QuestionBox from "../../Components/Question-box/QuestionBox";
-import Post from "../../Components/Post/post";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form } from "formik";
 import { userContext } from "../../userContext";
 import profilePic from "../../Images/missgowon.jpg";
 import gif1 from "../../Gifs/ohsogothic.gif";
@@ -33,6 +29,7 @@ const EditProfile = () => {
     const { user } = useContext(userContext);
     const { username } = useParams();
     const [profile, setProfile] = useState([]);
+    const [selectedPic, setPic] = useState(profilePic);
     const [selectedGif, setGif] = useState(gif1);
     const gifSelection = [gif1, gif2, gif3, gif4, gif5, gif6, gif7, gif8, gif9, gif10, gif11, gif12, gif13, gif14, gif15, gif16];
     const updateProfile = async (values) => {
@@ -70,18 +67,19 @@ const EditProfile = () => {
             <div className="edit">
                 <h2>What do you want to edit?</h2>
                 {selectedTab !== false ?
-                    <button onClick={() => setSelectedTab(false)}>Natrag</button>
+                    <button onClick={() => setSelectedTab(false)}>Go back</button>
                     : tabs.map((tab, i) => <button onClick={() => setSelectedTab(i)}>{tab}</button>)
                 }{selectedTab === 0 &&
 
                     <div className="edit__profile">
-                        <div className="edit__profile--form">
-                            <img src={profilePic} alt="Profilna"></img>
+                        <div className="edit__profile-form">
+
 
 
                             <Formik
                                 initialValues={{
                                     username: username,
+                                    profile: profile.selectedPic,
                                     age: profile.age,
                                     country: profile.country,
                                     gender: profile.gender,
@@ -97,6 +95,15 @@ const EditProfile = () => {
                                 }}
                             >
                                 <Form>
+                                    <label htmlFor="profile">
+                                        <img src={selectedPic} alt="Profilna"></img>
+                                    </label>
+                                    <Field type="file"
+                                        id="profile"
+                                        name="profile"
+                                    >
+
+                                    </Field >
                                     <p>{username}</p>
                                     <Field
                                         type="text"
@@ -135,30 +142,28 @@ const EditProfile = () => {
                 {selectedTab === 1 &&
                     <>
                         <div className="edit__quiz">
-                            <div className="edit__quiz--questions">
-                                <p className="quiz__q--first">Favourite bands:</p>
-                                <p className="quiz__q--second">Favourite singer:</p>
-                                <p className="quiz__q--third">Favourite song:</p>
-                            </div>
-                            <div className="edit__quiz--answers">
-                                <Formik
-                                    initialValues={{
-                                        username: username,
-                                        age: profile.age,
-                                        country: profile.country,
-                                        gender: profile.gender,
-                                        description: profile.description,
-                                        band: profile.band,
-                                        singer: profile.singer,
-                                        song: profile.song,
-                                        gif: profile.selectedGif,
-                                    }}
-                                    onSubmit={(value) => {
-                                        console.log(value);
-                                        updateProfile(value);
-                                    }}
-                                >
-                                    <Form>
+
+
+                            <Formik
+                                initialValues={{
+                                    username: username,
+                                    age: profile.age,
+                                    country: profile.country,
+                                    gender: profile.gender,
+                                    description: profile.description,
+                                    band: profile.band,
+                                    singer: profile.singer,
+                                    song: profile.song,
+                                    gif: profile.selectedGif,
+                                }}
+                                onSubmit={(value) => {
+                                    console.log(value);
+                                    updateProfile(value);
+                                }}
+                            >
+                                <Form>
+                                    <div class="edit__quiz-field">
+                                        <label className="quiz__q--first">Favourite bands:</label>
 
                                         <Field
                                             className="quiz__a--first"
@@ -166,30 +171,35 @@ const EditProfile = () => {
                                             placeholder="Tokyo hotel"
                                             name="band"
                                         ></Field>
-
+                                    </div>
+                                    <div class="edit__quiz-field">
+                                        <label className="quiz__q--second">Favourite singer:</label>
                                         <Field
                                             className="quiz__a--second"
                                             type="text"
                                             placeholder="Doja cat"
                                             name="singer"
                                         ></Field>
-
+                                    </div>
+                                    <div class="edit__quiz-field">
+                                        <label className="quiz__q--third">Favourite song:</label>
                                         <Field
                                             className="quiz__a--third"
                                             type="text"
                                             placeholder="Gangam style"
                                             name="song"
                                         ></Field>
-                                        <div>
-                                            <img src={selectedGif} alt="gif"></img>
-                                        </div>
-                                        <button type="Submit">
-                                            Save quiz
-                                        </button>
-                                    </Form>
+                                    </div>
+                                    <div>
+                                        <img src={selectedGif} alt="gif"></img>
+                                    </div>
+                                    <button type="Submit">
+                                        Save quiz
+                                    </button>
+                                </Form>
 
-                                </Formik>
-                            </div>
+                            </Formik>
+
 
                         </div>
                         <h2>Click on the gif you want to use</h2>

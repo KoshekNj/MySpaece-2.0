@@ -14,6 +14,26 @@ router.get("/:author", async (req, res) => {
     }
 });
 
+//Getting all posts from users friends
+router.get("/friends/:author", async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.params.author });
+
+        const allPosts = await Promise.all(
+            user.friends.map(async (friend) => {
+                return await Post.find({
+                    author: friend
+                })
+            })
+        )
+
+        res.status(200).json(allPosts.flat());
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: error });
+    }
+});
+
 //Create post 
 
 router.post('/create', async (req, res) => {

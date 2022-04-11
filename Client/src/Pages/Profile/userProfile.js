@@ -5,7 +5,7 @@ import Header from "../../Components/Header/Header";
 import ProfileBox from "../../Components/profile-box/profile";
 import QuestionBox from "../../Components/Question-box/QuestionBox";
 import Post from "../../Components/Post/post";
-import axios from "axios";
+import { getPosts } from "../../services/post/getPosts";
 import { useLocation } from "react-router-dom";
 import krasAd from "../../Images/krasvjevericakvadrat.png";
 import { useParams } from "react-router-dom";
@@ -19,20 +19,11 @@ const Profile = () => {
 
   console.log("user", username)
 
-  console.log(location.pathname);
-  React.useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8080/posts/Bff4eva`);
-        console.log(res);
-        console.log(res.data);
-        setProfile(res.data);
-        console.log(profile);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getPosts();
+  React.useEffect(async () => {
+
+    const res = await getPosts(username);
+    setProfile(res);
+    console.log(profile);
   }, []);
 
   return (
@@ -41,7 +32,7 @@ const Profile = () => {
       <div className="home">
         <div className="home__left-side">
           <ProfileBox username={username} />
-          <QuestionBox />
+          <QuestionBox username={username} />
           <div className="home__reklama">
             <img src={krasAd} alt="Kras"></img>
           </div>

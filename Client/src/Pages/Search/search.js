@@ -6,7 +6,7 @@ import Header from "../../Components/Header/Header";
 import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../../userContext";
 import { Formik, Field, Form } from "formik";
-import axios from "axios";
+import { getFriends } from "../../services/user/getUserFriends";
 
 const Search = () => {
   let pageName = "Contact center";
@@ -23,26 +23,15 @@ const Search = () => {
 
   const [friend, setFriend] = useState([]);
 
-  useEffect(() => {
+  useEffect(async () => {
 
     if (user === null)
       navigate(`/`);
 
-    const getFriends = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8080/users/friends/${user}`);
-        console.log(res);
-        console.log(res.data);
-        setFriend(res.data);
-        console.log(friend);
-      }
-      catch (error) {
-        console.log(error);
-      }
-    };
-    getFriends();
-  }, [])
-
+    const friends = await getFriends(user);
+    console.log(friends);
+    setFriend(friends.data);
+  })
   return (
     <>
       <Header page={pageName} />

@@ -1,34 +1,13 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { Formik, Field, Form } from "formik";
 import "./LogInStyle.scss";
-import {userContext} from "../../userContext";
+import { userContext } from "../../userContext";
+import { logInUser } from "../../services/user/loginUser";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const {user,setUser}=useContext(userContext);
-  console.log(user);
-  const login = async (values) => {
-    await axios
-      .post(
-        `http://localhost:8080/users/login`,
-        {
-          password: values.password,
-          username: values.username,
-        },
-        { withCredentials: true }
-      )
-      .then((response) => {
-        setUser(response.data.username);
-        console.log(response.data);
-        navigate(`/home/${response.data.username}`);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Wrong username or password");
-      });
-  };
+  const { user, setUser } = useContext(userContext);
 
   return (
     <div className="log-in">
@@ -40,8 +19,12 @@ const LogIn = () => {
             username: "",
             password: "",
           }}
-          onSubmit={(values) => {
-            login(values);
+          onSubmit={async (values) => {
+            const response = await logInUser(values);
+            if (response.status === 200) {
+              setUser(response.data.username);
+              navigate(`/home/${response.data.username}`);
+            }
           }}
         >
           <Form>

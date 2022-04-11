@@ -2,10 +2,10 @@ import * as React from "react";
 import { useState, useContext } from "react";
 import "./editProfile.scss";
 import Header from "../../Components/Header/Header";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
-import { userContext } from "../../userContext";
+import { updateProfile } from "../../services/user/updateProfile";
+import { getUser } from "../../services/user/getUser";
 import profilePic from "../../Images/missgowon.jpg";
 import gif1 from "../../Gifs/ohsogothic.gif";
 import gif2 from "../../Gifs/aboutme.gif";
@@ -26,39 +26,35 @@ import gif16 from "../../Gifs/xoxo.gif";
 
 const EditProfile = () => {
     let pageName = "Profile costumization"
-    const { user } = useContext(userContext);
     const { username } = useParams();
     const [profile, setProfile] = useState([]);
     const [selectedPic, setPic] = useState(profilePic);
+    // const [picToUpload, setPicToUpload] = useState(profilePic);
     const [selectedGif, setGif] = useState(gif1);
-    const gifSelection = [gif1, gif2, gif3, gif4, gif5, gif6, gif7, gif8, gif9, gif10, gif11, gif12, gif13, gif14, gif15, gif16];
-    const updateProfile = async (values) => {
-        console.log(values);
-        await axios
-            .put(
-                `http://localhost:8080/users/${username}`,
-                {
-                    username: username,
-                    age: values.age,
-                    country: values.country,
-                    gender: values.gender,
-                    description: values.description,
-                    band: values.band,
-                    singer: values.singer,
-                    song: values.song,
-                    gif: selectedGif,
 
-                }
-            )
-            .then((response) => {
-                console.log(response.data);
-                console.log(response.data.gif)
-            })
-            .catch((err) => {
-                console.log(err);
-                alert("Error when posting");
-            });
-    };
+
+
+
+    // loadUser -> then setPic && setProfile 
+
+
+    React.useEffect(async () => {
+        const user = await getUser(username);
+        setProfile(user.data);
+        setPic(user.data.profilePic);
+    }, []);
+
+    const gifSelection = [gif1, gif2, gif3, gif4, gif5, gif6, gif7, gif8, gif9, gif10, gif11, gif12, gif13, gif14, gif15, gif16];
+
+    const handleProfileChange = (e) => {
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setPic(reader.result);
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    }
+
     const [selectedTab, setSelectedTab] = React.useState(false);
     const tabs = ["Basic info", 'Favorite stuff']
     return (
@@ -79,7 +75,7 @@ const EditProfile = () => {
                             <Formik
                                 initialValues={{
                                     username: username,
-                                    profile: profile.selectedPic,
+                                    profile: profile.profile,
                                     age: profile.age,
                                     country: profile.country,
                                     gender: profile.gender,
@@ -90,8 +86,7 @@ const EditProfile = () => {
                                     gif: profile.selectedGif,
                                 }}
                                 onSubmit={(value) => {
-                                    console.log(value)
-                                    updateProfile(value);
+                                    updateProfile(username, value, selectedGif, selectedPic);
                                 }}
                             >
                                 <Form>
@@ -101,6 +96,9 @@ const EditProfile = () => {
                                     <Field type="file"
                                         id="profile"
                                         name="profile"
+                                        onChange={
+                                            handleProfileChange
+                                        }
                                     >
 
                                     </Field >
@@ -157,8 +155,7 @@ const EditProfile = () => {
                                     gif: profile.selectedGif,
                                 }}
                                 onSubmit={(value) => {
-                                    console.log(value);
-                                    updateProfile(value);
+                                    updateProfile(username, value, selectedGif, selectedPic);
                                 }}
                             >
                                 <Form>

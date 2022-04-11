@@ -2,7 +2,7 @@ GET http://localhost:8080/users
 
 ###
 
-GET http://localhost:8080/users/Tea
+GET http://localhost:8080/users/Bozon
 
 ###
 
@@ -44,7 +44,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/posts/Bff4eva
+GET http://localhost:8080/posts/luka
 
 ###
 
@@ -60,4 +60,4 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/users/friends/luka
+GET http://localhost:8080/posts/friends/Bozon

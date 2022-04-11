@@ -2,7 +2,6 @@ import * as React from "react";
 import "./post.scss";
 
 const Post = ({ post }) => {
-  console.log(post);
   return (
     <div className="post">
       <div className="post__blog-info">

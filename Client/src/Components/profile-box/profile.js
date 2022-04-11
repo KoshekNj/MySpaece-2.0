@@ -1,35 +1,24 @@
 import * as React from "react";
 import { useContext, useState } from "react";
 import "./profile.scss";
-import profilePic from "../../Images/missgowon.jpg";
-import { userContext } from "../../userContext";
-import axios from "axios";
+import defaultPic from "../../Images/missgowon.jpg";
+import { getUser } from "../../services/user/getUser";
 
 const ProfileBox = ({ username }) => {
 
-  const { user } = useContext(userContext);
   const [profile, setProfile] = useState([]);
+  const [selectedPic, setPic] = useState();
 
-  React.useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8080/users/${username}`);
-        console.log(res);
-        console.log(res.data);
-        setProfile(res.data);
-        console.log(profile);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUser();
+  React.useEffect(async () => {
+    const resUser = await getUser(username);
+    setProfile(resUser.data);
   }, []);
 
   return (
     <>
       <div className="profile">
         <div className="profile__top">
-          <img src={profilePic} alt="Profilna"></img>
+          <img src={profile.profilePic} alt="Profilna"></img>
           <div className="profile__info">
             <p>{username}</p>
             <p>{profile.age}</p>

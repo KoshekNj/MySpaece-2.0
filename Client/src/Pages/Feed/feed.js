@@ -5,7 +5,7 @@ import "./feed.scss";
 import Post from "../../Components/Post/post";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../../userContext";
-import axios from "axios";
+import { getPosts } from "../../services/post/getFriendsPosts";
 
 
 const Feed = () => {
@@ -14,43 +14,20 @@ const Feed = () => {
   const { user, setUser } = useContext(userContext);
 
   const [posts, setPosts] = useState([]);
-  const [friends, setFriends] = useState([]);
+  //const [friends, setFriends] = useState([]);
 
-  useEffect(() => {
+  useEffect(async () => {
 
     if (user === null)
       navigate(`/`);
 
-    const getFriends = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8080/users/friends/${user}`);
-        setFriends(res.data.map(user => user.username));
-      }
-      catch (error) {
-        console.log(error);
-      }
-    };
-    getFriends();
+
+    const res = await getPosts(user);
+    console.log(res);
+
+    setPosts(res);
   }, [])
 
-  React.useEffect(() => {
-    const getPosts = async () => {
-      try {
-
-        friends.forEach(async (friend) => {
-          const res = await axios.get(`http://localhost:8080/posts/${friend}`);
-          setPosts([...posts, ...res.data])
-        })
-
-      }
-      catch (error) {
-        console.log(error);
-      }
-    }
-    if (friends.length > 0) {
-      getPosts()
-    }
-  }, [friends])
 
 
 

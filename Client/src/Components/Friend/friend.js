@@ -15,7 +15,7 @@ const Friend = ({ friend }) => {
   return (
     <>
       <div className="friend-box">
-        <img src={image} alt="profile-pic"></img>
+        <img src={friend.profilePic} alt="profile-pic"></img>
         <div className="friend-box__info">
           <p>{friend.username}</p>
           <p> {friend.age} years old</p>

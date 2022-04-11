@@ -11,17 +11,17 @@ import { useParams } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import krasAd from "../../Images/krasvjevericakvadrat.png";
 import { userContext } from "../../userContext";
+import { getPosts } from "../../services/post/getPosts";
+import { createPost } from "../../services/post/createPost";
 
 const Homepage = () => {
   let pageName = "My profile";
   const navigate = useNavigate();
   const { user, setUser } = useContext(userContext);
-  console.log(user);
   const [users, setUsers] = useState([]);
 
   const [shouldfetch, setShouldFetch] = React.useState(true);
   const { username } = useParams();
-  console.log(username);
   const date = new Date();
   const formatDate = `${date.getDate()}/${date.getMonth() + 1
     }/${date.getFullYear()}`;
@@ -32,46 +32,13 @@ const Homepage = () => {
       navigate(`/`);
   }, []);
 
-  React.useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8080/posts/${username}`);
-        console.log(res);
-        console.log(res.data);
-        setUsers(res.data);
-        setShouldFetch(false)
-        console.log(users);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  React.useEffect(async () => {
     if (shouldfetch == true) {
-      getPosts();
+      const posts = await getPosts(username)
+      setUsers(posts);
+      setShouldFetch(false)
     }
   }, [shouldfetch]);
-
-  const createPost = async (values) => {
-    console.log(values);
-    await axios
-      .post(
-        `http://localhost:8080/posts/create`,
-        {
-          author: values.author,
-          title: values.title,
-          text: values.text,
-          date: values.date,
-        }
-      )
-      .then((response) => {
-        setShouldFetch(true)
-        console.log(response.data.author);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Error when posting");
-      });
-  };
-
 
   return (
     <div>
@@ -99,9 +66,11 @@ const Homepage = () => {
               text: "",
               date: formatDate,
             }}
-            onSubmit={(value) => {
-              console.log(value);
-              createPost(value);
+            onSubmit={async (values) => {
+              const response = await createPost(values);
+              if (response.status === 201) {
+                setShouldFetch(true)
+              }
             }}
           >
             <div className="home__create-post">

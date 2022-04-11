@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import "./QuestionBox.scss";
-import axios from "axios";
+import { getUser } from "../../services/user/getUser";
 
 
 
@@ -9,20 +9,11 @@ const QuestionBox = ({ username }) => {
 
   const [profile, setProfile] = useState([]);
 
-  React.useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await axios.get(`http://localhost:8080/users/${username}`);
-        console.log(res);
-        console.log(res.data);
-        setProfile(res.data);
-        console.log(profile);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUser();
+  React.useEffect(async () => {
+    const resUser = await getUser(username);
+    setProfile(resUser.data);
   }, []);
+
   return (
     <div className="quiz">
       <p className="quiz__q--first">Favourite bands:</p>

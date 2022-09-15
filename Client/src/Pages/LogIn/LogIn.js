@@ -22,8 +22,11 @@ const LogIn = () => {
           onSubmit={async (values) => {
             const response = await logInUser(values);
             if (response.status === 200) {
-              setUser(response.data.username);
-              navigate(`/home/${response.data.username}`);
+              setUser({
+                username: response.data.username,
+                id: response.data._id,
+              });
+              navigate(`/`);
             }
           }}
         >

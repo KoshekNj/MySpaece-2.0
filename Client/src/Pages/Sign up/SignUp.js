@@ -24,15 +24,17 @@ const SignUp = () => {
           }}
           onSubmit={async (values) => {
             if (values.password !== values.password2)
-              alert("Passwords do not match")
+              alert("Passwords do not match");
             else {
               const response = await signUpUser(values);
               if (response.status === 201) {
-                setUser(response.data.username);
-                navigate(`/home/${response.data.username}`);
+                setUser({
+                  username: response.data.username,
+                  id: response.data._id,
+                });
+                navigate(`/`);
               }
             }
-
           }}
         >
           <Form>
@@ -57,7 +59,7 @@ const SignUp = () => {
         </Formik>
         <div className="sign-up__link">
           <h3>Have an account already?</h3>
-          <Link to="/"> LogIn</Link>
+          <Link to="/login"> LogIn</Link>
         </div>
       </div>
     </div>

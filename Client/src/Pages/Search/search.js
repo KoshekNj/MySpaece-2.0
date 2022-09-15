@@ -12,11 +12,18 @@ const Search = () => {
   let pageName = "Contact center";
   const navigate = useNavigate();
   const { user, setUser } = useContext(userContext);
-  const insult = ["hate you", "play Elden Ring", "have a foot fetish", "listen to boomer music", "play Genshin Impact", "are making fun of your outfits behind your back"]
+  const insult = [
+    "hate you",
+    "play Elden Ring",
+    "have a foot fetish",
+    "listen to boomer music",
+    "play Genshin Impact",
+    "are making fun of your outfits behind your back",
+  ];
   const insultGenerator = insult[Math.floor(Math.random() * insult.length)];
   const username = "Bff4eva";
   const messageGo = (userInput) => {
-    console.log(userInput)
+    console.log(userInput);
     console.log({ insultGenerator });
     alert("You dont need " + userInput.username + ", they " + insultGenerator);
   };
@@ -24,14 +31,12 @@ const Search = () => {
   const [friend, setFriend] = useState([]);
 
   useEffect(async () => {
+    if (user === null) navigate(`/`);
 
-    if (user === null)
-      navigate(`/`);
-
-    const friends = await getFriends(user);
+    const friends = await getFriends(user.username);
     console.log(friends);
     setFriend(friends.data);
-  })
+  }, []);
   return (
     <>
       <Header page={pageName} />
@@ -45,7 +50,8 @@ const Search = () => {
               }}
               onSubmit={(values) => {
                 messageGo(values);
-              }}>
+              }}
+            >
               <Form>
                 <Field
                   type="text"
@@ -59,11 +65,8 @@ const Search = () => {
           <h2>Friend List</h2>
           <div className="search__bottom--friend">
             {friend?.map((friend, i) => (
-              <Link to={`/profile/${friend.username}`}>
-                <Friend friend={friend} key={friend._id} />
-              </Link>
+              <Friend friend={friend} key={friend._id} />
             ))}
-
           </div>
         </div>
       </div>

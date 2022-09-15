@@ -1,0 +1,59 @@
+@import "./src/components/_mixins";
+@import "./src/components/_variables";
+
+.comment{
+    display:flex;
+    width:100%;
+    font-family: Source Sans Pro;
+        font-size: 15px;
+        line-height: 16px;
+        color: aliceblue;
+        background: rgba(100, 19, 11, 0.7);
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 1rem;
+margin: 0px 0px 30px 0px;
+
+@media (max-width: $md) {
+        margin: 0px 0px 30px 0px;
+        //width: 100%;
+    }
+    &__right{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:85%;
+        padding-left: 1rem;
+
+        button{
+            align-self: flex-end;
+            margin-top:5px;
+            border:0px;
+            background:none;
+            color:blanchedalmond;
+                font-weight: bolder;
+                font-size: 13px;
+                
+        }
+
+        button:hover{
+            text-decoration: underline;
+            cursor:pointer;
+        }
+        p{
+            //font-weight: bold;
+            // margin-left:1rem;
+            
+        }
+       &--up{
+        display: flex;
+        justify-content: space-between;
+        width:100%;
+        
+        margin-bottom: 10px;
+       }
+       }
+        img {
+            height: 65px;
+            width: 60px;
+        }
+}

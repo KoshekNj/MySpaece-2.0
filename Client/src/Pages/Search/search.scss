@@ -4,7 +4,7 @@
 .search {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  
 
   h2 {
     margin: 1rem;
@@ -40,20 +40,22 @@
     width: 50%;
     align-self: center;
     margin-bottom: 1rem;
+    text-align: center;
 
     @media (max-width: $sm) {
       width: 70%;
     }
 
-    input {
-      background: $color-input;
-    }
-
-    //
-    input,
-    input::-webkit-input-placeholder {
-      @include input2;
-      font-size: 10px;
+            ::placeholder {
+              font-family: Orbitron;
+      
+            }
+      
+            input,
+            input::-webkit-input-placeholder {
+              @include input2;
+              
+            
 
       @media (max-width: $md) {
         margin: 10px 0px 0px 0px;
@@ -61,11 +63,15 @@
       }
     }
 
-    button {
-      width: 5rem;
-      margin: 15px 0px 15px 0px;
-      @include button;
-
+        button {
+          width: 5rem;
+          margin: 15px 0px 15px 0px;
+          @include button;
+    
+          &:hover {
+            text-shadow: $button-hover;
+          }
+        
       @media (max-width: $sm) {
 
         font-size: 8px;

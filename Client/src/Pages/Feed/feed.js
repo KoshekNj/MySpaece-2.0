@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "../../userContext";
 import { getPosts } from "../../services/post/getFriendsPosts";
 
-
 const Feed = () => {
   let pageName = "Worldwide feed";
   const navigate = useNavigate();
@@ -17,27 +16,24 @@ const Feed = () => {
   //const [friends, setFriends] = useState([]);
 
   useEffect(async () => {
+    if (user === null) navigate(`/`);
 
-    if (user === null)
-      navigate(`/`);
-
-
-    const res = await getPosts(user);
+    const res = await getPosts(user.username);
     console.log(res);
 
     setPosts(res);
-  }, [])
+  }, []);
 
-
-
-
-  console.log(posts)
+  console.log(posts);
   return (
     <div className="feed">
       <Header page={pageName} />
       <div className="feed__bottom">
         {posts?.map((post) => (
-          <Post key={post.id} post={post} />
+          <>
+            <p className="postAuthor">{post.author}</p>
+            <Post key={post._id} post={post} />
+          </>
         ))}
       </div>
     </div>

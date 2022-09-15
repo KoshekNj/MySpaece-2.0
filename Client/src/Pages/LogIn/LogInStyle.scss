@@ -25,22 +25,31 @@
       align-items: center;
     }
 
-    input {
-      //znam da pari glupo input i input, input::... al sjebe mi boje ako stavim sve skupa XD 
-      background: $color-input1;
-      border: 1.5px solid $color-border;
-      border-radius: 15px;
-      margin-bottom: 35px;
-
-      @media (min-width: $md) {
-        width: 423px;
-      }
-    }
-
-    input,
-    input::-webkit-input-placeholder {
-      @include input1;
-    }
+     input {
+       //znam da pari glupo input i input, input::... al sjebe mi boje ako stavim sve skupa XD 
+       background: $color-input1;
+       border: 1.5px solid $color-border;
+       border-radius: 15px;
+       margin: 15px;
+  
+       @media (min-width: $md) {
+         width: 423px;
+       }
+  
+     }
+  
+     ::placeholder {
+       font-family: Orbitron;
+     }
+  
+     input,
+     input::-webkit-input-placeholder {
+       @include input1;
+  
+       @media (max-width: $sm) {
+         font-size: 10px;
+       }
+     }
 
     button {
       width: 5rem;

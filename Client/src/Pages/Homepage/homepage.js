@@ -13,6 +13,8 @@ import krasAd from "../../Images/krasvjevericakvadrat.png";
 import { userContext } from "../../userContext";
 import { getPosts } from "../../services/post/getPosts";
 import { createPost } from "../../services/post/createPost";
+import { deleteComment } from "../../services/post/deleteComment";
+import { deletePost } from "../../services/post/deletePost";
 
 const Homepage = () => {
   let pageName = "My profile";
@@ -21,22 +23,22 @@ const Homepage = () => {
   const [users, setUsers] = useState([]);
 
   const [shouldfetch, setShouldFetch] = React.useState(true);
-  const { username } = useParams();
+
   const date = new Date();
-  const formatDate = `${date.getDate()}/${date.getMonth() + 1
-    }/${date.getFullYear()}`;
+  const formatDate = `${date.getDate()}/${
+    date.getMonth() + 1
+  }/${date.getFullYear()}`;
 
-
+  console.log(user);
   React.useEffect(() => {
-    if (user === null)
-      navigate(`/`);
+    if (user === null) navigate(`/login`);
   }, []);
 
   React.useEffect(async () => {
     if (shouldfetch == true) {
-      const posts = await getPosts(username)
+      const posts = await getPosts(user.username);
       setUsers(posts);
-      setShouldFetch(false)
+      setShouldFetch(false);
     }
   }, [shouldfetch]);
 
@@ -45,23 +47,26 @@ const Homepage = () => {
       <Header page={pageName} />
       <div className="home">
         <div className="home__left-side">
-          <ProfileBox username={username} />
-          <QuestionBox username={username} />
+          <ProfileBox username={user.username} />
+          <QuestionBox username={user.username} />
           <div className="home__reklama">
             <img src={krasAd} alt="Kras"></img>
           </div>
-          <Link to="/">
-            <button onClick={() => {
-              setUser(null);
-            }
-            }>LOG OUT</button>
+          <Link to="/login">
+            <button
+              onClick={() => {
+                setUser(null);
+              }}
+            >
+              LOG OUT
+            </button>
           </Link>
         </div>
 
         <div className="home__right-side">
           <Formik
             initialValues={{
-              author: username,
+              author: user.username,
               title: "",
               text: "",
               date: formatDate,
@@ -69,7 +74,7 @@ const Homepage = () => {
             onSubmit={async (values) => {
               const response = await createPost(values);
               if (response.status === 201) {
-                setShouldFetch(true)
+                setShouldFetch(true);
               }
             }}
           >
@@ -82,19 +87,30 @@ const Homepage = () => {
                   required
                 ></Field>
                 <Field
-                  type="text"
+                  as="textarea"
                   placeholder="Create new blogpost..."
                   name="text"
                   required
                 ></Field>
-                <button type="Submit">
-                  Post it
-                </button>
+                <button type="Submit">Post it</button>
               </Form>
             </div>
           </Formik>
-          {users?.map((post, i) => (
-            <Post post={post} key={post._id} />
+          {users?.map((post) => (
+            <Post
+              post={post}
+              button={
+                <button
+                  className="delete-button"
+                  onClick={() => {
+                    deletePost(post._id);
+                  }}
+                >
+                  Delete
+                </button>
+              }
+              key={post._id}
+            />
           ))}
         </div>
       </div>

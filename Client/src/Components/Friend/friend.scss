@@ -9,6 +9,9 @@
   justify-content: space-around;
   margin-bottom: 1rem;
 
+  &__clickable{
+    display: flex;
+  }
   img {
     max-height: 5rem;
     align-self: center;
@@ -40,7 +43,9 @@
     border-color: transparent;
     font-size: 20px;
     color: $color-p;
-
+&:hover {
+    text-shadow: $button-hover;
+  }
     @media (max-width: $sm) {
 
       font-size: 10px;

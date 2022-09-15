@@ -5,23 +5,22 @@
   background: $color-posts;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
-  margin: 0px 70px 50px 0px;
+  margin: 0px 0px 50px 0px;
   font-family: Source Sans Pro;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 16px;
   color: $color-p;
   width: 100%;
 
-  @media (max-width: $md) {
+@media (max-width: $md) {
     margin: 0px 0px 30px 0px;
     //width: 100%;
   }
-
   &__blog-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 1rem;
+    margin: 1rem 1rem 0rem 1rem;
 
     h2 {
       font-weight: 600;
@@ -30,7 +29,7 @@
     }
   }
 
-  &__blog-text {
+  &__blog-content {
     padding: 1rem;
 
     img {
@@ -41,4 +40,63 @@
     }
   }
 
+  &__likes{
+        display:flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-left:5px;
+
+    &--left{
+      display: flex;
+    }
+
+                        .delete-button {
+                          align-self: flex-end;
+                          padding: 0rem 0rem 1rem 1rem;
+                          border: 0px;
+                          background: none;
+                          color: blanchedalmond;
+                          font-weight: bolder;
+                          font-size: 13px;
+            
+                          margin-right: 20px;
+            
+                        }
+            
+                        .delete-button:hover {
+                          text-decoration: underline;
+                          cursor: pointer;
+                        }
+    .likeButton{
+      display: flex;
+      justify-content: space-around;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      border:0px;
+      padding: 3px 7px 3px 7px;
+      width:3rem;
+      color:aliceblue;
+      text-align: left;
+      margin-bottom:10px;
+      margin-left:10px;
+      
+      &__icon{
+    margin-right: 5px;
+    
+      }
+      &__icon:hover{
+        cursor: pointer;
+        color:aliceblue;
+    text-shadow: $button-hover;
+    
+      }
+
+      &__value:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+    
+   
+  }
 }

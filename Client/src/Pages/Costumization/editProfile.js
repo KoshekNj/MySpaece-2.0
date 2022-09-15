@@ -91,7 +91,7 @@ const EditProfile = () => {
                             >
                                 <Form>
                                     <label htmlFor="profile">
-                                        <img src={selectedPic} alt="Profilna"></img>
+                                        <img src={profilePic} alt="Profilna"></img>
                                     </label>
                                     <Field type="file"
                                         id="profile"

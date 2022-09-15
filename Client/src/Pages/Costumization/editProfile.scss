@@ -54,14 +54,14 @@
     p {
       width: fit-content;
       text-align: center;
-      margin: 20px 10px;
+      margin: 20px 25px;
       font-family: $font-pc;
 
     }
 
     img {
       object-fit: cover;
-      margin: 20px;
+      margin: 20px 20px 0px 20px;
       width: 125px;
       height: 160px;
 
@@ -79,6 +79,9 @@
       margin: 15px;
     }
 
+    ::placeholder{
+      font-family: Orbitron;
+    }
     input,
     input::-webkit-input-placeholder {
       @include input1;
@@ -96,10 +99,13 @@
       width: 100%;
       flex-wrap: wrap;
       justify-content: center;
+      text-align:center;
 
       #profile {
         visibility: hidden;
         height: 0px;
+        margin:0px;
+        padding:0px;
       }
 
       @media (min-width: $md) {

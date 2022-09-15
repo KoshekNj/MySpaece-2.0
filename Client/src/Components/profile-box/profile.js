@@ -5,31 +5,39 @@ import defaultPic from "../../Images/missgowon.jpg";
 import { getUser } from "../../services/user/getUser";
 
 const ProfileBox = ({ username }) => {
-
   const [profile, setProfile] = useState([]);
   const [selectedPic, setPic] = useState();
 
   React.useEffect(async () => {
-    const resUser = await getUser(username);
-    setProfile(resUser.data);
-  }, []);
+    if (username) {
+      const resUser = await getUser(username);
+      setProfile(resUser.data);
+    }
+  }, [username]);
 
   return (
     <>
       <div className="profile">
         <div className="profile__top">
-          <img src={profile.profilePic} alt="Profilna"></img>
+          {!profile.profilePic ? (
+            <img src={defaultPic} alt="Profilna"></img>
+          ) : (
+            <img src={profile.profilePic} alt="Profilna"></img>
+          )}
+
           <div className="profile__info">
             <p>{username}</p>
-            <p>{profile.age}</p>
-            <p>{profile.country}</p>
-            <p>{profile.gender}</p>
+            {!profile.age ? <p>uknown</p> : <p>{profile.age}</p>}
+            {!profile.country ? <p>uknown</p> : <p>{profile.country}</p>}
+            {!profile.gender ? <p>uknown</p> : <p>{profile.gender}</p>}
           </div>
         </div>
         <div className="profile__description">
-          <p>
-            {profile.description}
-          </p>
+          {!profile.description ? (
+            <p>You haven't made a description yet</p>
+          ) : (
+            <p>{profile.description}</p>
+          )}
         </div>
       </div>
     </>

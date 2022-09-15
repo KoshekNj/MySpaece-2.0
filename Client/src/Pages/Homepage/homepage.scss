@@ -79,28 +79,44 @@
       box-shadow: $shadow;
       backdrop-filter: blur(4px);
       margin-bottom: 50px;
+      text-align: center;
 
       @media (max-width: $md) {
         margin-bottom: 30px;
       }
 
-      input {
-        background: $color-input;
-
+      ::placeholder{
+        font-family: Orbitron;
       }
-
-      input,
+      input, textarea,
       input::-webkit-input-placeholder {
         @include input2;
+      
       }
 
-      button {
-        width: 5rem; //mixin i za signup triba
-        margin: 15px 0px 15px 0px;
-        @include button;
-
-      }
+            button {
+              width: 5rem;
+              margin: 15px 0px 15px 0px;
+              @include button;
+      
+              &:hover {
+                text-shadow: $button-hover;
+              }
+            }
+      
     }
+.home__post{
+display:flex;
+flex-direction: column;
+  background: rgba(100, 19, 11, 0.7);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin:0px;
+
+  @media (min-width: $md) {
+      margin: 0px 0px 30px 0px;
+    }
+
+                }
   }
 
 

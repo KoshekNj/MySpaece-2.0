@@ -2,7 +2,7 @@ GET http://localhost:8080/users
 
 ###
 
-GET http://localhost:8080/users/Bozon
+GET http://localhost:8080/users/Luka30
 
 ###
 
@@ -44,7 +44,10 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/posts/luka
+GET http://localhost:8080/posts/Luka30
+###
+
+GET http://localhost:8080/posts/post/62f1240e51fc913784d1220c
 
 ###
 
@@ -60,4 +63,29 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/posts/friends/Bozon
+GET http://localhost:8080/posts/friends/Luka30
+
+###
+POST http://localhost:8080/posts/comment
+Content-Type: application/json
+
+{
+    "userId":"6246d0eedb46925aad360efd",
+    "postId":"6246fcbcdb46925aad36225a",
+    "text":"hehe",
+    "date":"28/3/2022"
+}
+
+###
+GET http://localhost:8080/posts/comments/6246fcbcdb46925aad36225a
+
+###
+DELETE http://localhost:8080/posts/comments/62e3ce5bc3b69484d644d5e3
+
+###
+PUT http://localhost:8080/posts/post/62f1240e51fc913784d1220c
+Content-Type: application/json
+
+{
+    "likes":"Luka30"
+}

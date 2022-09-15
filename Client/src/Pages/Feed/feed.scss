@@ -14,9 +14,17 @@
   justify-content: center;
   align-items: center;
   width: 60%;
-  margin-left: 4rem;
 
   @media (max-width: $sm) {
     margin: 0px;
+  }
+
+
+  .postAuthor{
+    font-family: $font-pc;
+    color:$color-p;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-left:30px;
   }
 }

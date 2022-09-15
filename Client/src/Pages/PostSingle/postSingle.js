@@ -20,7 +20,6 @@ const PostSingle = () => {
   const { user, setUser } = React.useContext(userContext);
   let pageName = "Post";
 
-  console.log("post single");
   React.useEffect(async () => {
     const resPost = await getPostById(postId);
     console.log("respost", resPost);
@@ -29,8 +28,8 @@ const PostSingle = () => {
 
   React.useEffect(async () => {
     if (shouldfetch == true) {
-      const comment = await getComments(postId);
-      setComments(comment);
+      const resComment = await getComments(postId);
+      setComments(resComment);
       setShouldFetch(false);
     }
   }, [shouldfetch]);
@@ -40,7 +39,6 @@ const PostSingle = () => {
     date.getMonth() + 1
   }/${date.getFullYear()}`;
 
-  console.log("USER" + user.id);
   return (
     <>
       <Header page={pageName} />

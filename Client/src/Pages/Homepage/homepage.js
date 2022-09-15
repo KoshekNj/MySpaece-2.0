@@ -20,7 +20,7 @@ const Homepage = () => {
   let pageName = "My profile";
   const navigate = useNavigate();
   const { user, setUser } = useContext(userContext);
-  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const [shouldfetch, setShouldFetch] = React.useState(true);
 
@@ -29,15 +29,14 @@ const Homepage = () => {
     date.getMonth() + 1
   }/${date.getFullYear()}`;
 
-  console.log(user);
   React.useEffect(() => {
     if (user === null) navigate(`/login`);
   }, []);
 
   React.useEffect(async () => {
     if (shouldfetch == true) {
-      const posts = await getPosts(user.username);
-      setUsers(posts);
+      const resPosts = await getPosts(user.username);
+      setPosts(resPosts);
       setShouldFetch(false);
     }
   }, [shouldfetch]);
@@ -49,7 +48,7 @@ const Homepage = () => {
         <div className="home__left-side">
           <ProfileBox username={user.username} />
           <QuestionBox username={user.username} />
-          <div className="home__reklama">
+          <div className="home__imageAd">
             <img src={krasAd} alt="Kras"></img>
           </div>
           <Link to="/login">
@@ -96,7 +95,7 @@ const Homepage = () => {
               </Form>
             </div>
           </Formik>
-          {users?.map((post) => (
+          {posts?.map((post) => (
             <Post
               post={post}
               button={

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useContext, useEffect, useState } from "react";
-import "./search.scss";
+import "./contactCenter.scss";
 import Friend from "../../Components/Friend/friend";
 import Header from "../../Components/Header/Header";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import { userContext } from "../../userContext";
 import { Formik, Field, Form } from "formik";
 import { getFriends } from "../../services/user/getUserFriends";
 
-const Search = () => {
+const ContactCenter = () => {
   let pageName = "Contact center";
   const navigate = useNavigate();
   const { user, setUser } = useContext(userContext);
@@ -73,4 +73,4 @@ const Search = () => {
     </>
   );
 };
-export default Search;
+export default ContactCenter;

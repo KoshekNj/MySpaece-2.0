@@ -55,7 +55,7 @@ PUT http://localhost:8080/users/Koshek
 Content-Type: application/json
 
 {
-    "username":"Koshek",
+    "username":"Luka30",
     "band":"Koshefggfdk",
     "singer":"tea.zdfssfdup@gmail.com",
     "song":"lillol123"

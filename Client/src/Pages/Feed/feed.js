@@ -17,14 +17,10 @@ const Feed = () => {
 
   useEffect(async () => {
     if (user === null) navigate(`/`);
-
-    const res = await getPosts(user.username);
-    console.log(res);
-
-    setPosts(res);
+    const resPosts = await getPosts(user.username);
+    setPosts(resPosts);
   }, []);
 
-  console.log(posts);
   return (
     <div className="feed">
       <Header page={pageName} />

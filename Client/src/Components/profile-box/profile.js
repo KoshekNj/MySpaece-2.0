@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext, useState } from "react";
 import "./profile.scss";
-import defaultPic from "../../Images/missgowon.jpg";
+import defaultPicture from "../../Images/missgowon.jpg";
 import { getUser } from "../../services/user/getUser";
 
 const ProfileBox = ({ username }) => {
@@ -20,7 +20,7 @@ const ProfileBox = ({ username }) => {
       <div className="profile">
         <div className="profile__top">
           {!profile.profilePic ? (
-            <img src={defaultPic} alt="Profilna"></img>
+            <img src={defaultPicture} alt="Profilna"></img>
           ) : (
             <img src={profile.profilePic} alt="Profilna"></img>
           )}

@@ -40,7 +40,7 @@ const Header = ({ page }) => {
     },
     {
       label: "Contact center",
-      link: `/search/${user.username}`,
+      link: `/contact/${user.username}`,
       icon: icon1,
     },
     {
@@ -77,7 +77,7 @@ const Header = ({ page }) => {
             className="ad1"
           ></img>
         ) : (
-          <img src={adSrc} alt="Reklama" className="ad1"></img>
+          <img src={adSrc} alt="Ad" className="ad1"></img>
         )}
       </div>
     </>

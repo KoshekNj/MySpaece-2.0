@@ -73,12 +73,24 @@ const PostSingle = () => {
               </div>
             </Formik>
           )}
-          {comments?.map((comment) => (
-            <Comment
-              comment={comment}
-              deleteComment={deleteComment}
-              key={comment._id}
-            />
+          <h2>Comments:</h2>
+          {comments?.map((comment, i) => (
+            <>
+              {i < comments.length - 1 ? (
+                <Comment
+                  comment={comment}
+                  deleteComment={deleteComment}
+                  key={comment._id}
+                />
+              ) : (
+                <Comment
+                  comment={comment}
+                  deleteComment={deleteComment}
+                  noLine={true}
+                  key={comment._id}
+                />
+              )}
+            </>
           ))}
         </div>
       </div>

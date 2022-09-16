@@ -27,7 +27,10 @@ const Feed = () => {
       <div className="feed__bottom">
         {posts?.map((post) => (
           <>
-            <p className="postAuthor">{post.author}</p>
+            <div className="feed__post--author">
+              <img src={post.profilePic} alt="Profile picture"></img>
+              <p className="post-author">{post.author}</p>
+            </div>
             <Post key={post._id} post={post} />
           </>
         ))}

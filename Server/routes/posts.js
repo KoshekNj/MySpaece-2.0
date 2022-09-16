@@ -136,13 +136,22 @@ router.get("/friends/:user", async (req, res) => {
     const allPostsAssambled = await Promise.all(
       allPosts.flat().map(async (posts) => {
         const comments = (await Comment.find({ postId: posts._id })).length;
+        const user = await await User.find({ username: posts.author });
+        const { _id } = posts._id;
+        const author = posts.author;
+        const title = posts.title;
+        const text = posts.text;
+        const date = posts.date;
+        const comment = comments;
+        const profilePic = user[0].profilePic;
         return {
-          _id: posts._id,
-          author: posts.author,
-          title: posts.title,
-          text: posts.text,
-          date: posts.date,
-          comment: comments,
+          _id,
+          author,
+          title,
+          text,
+          date,
+          comment,
+          profilePic,
         };
       })
     );

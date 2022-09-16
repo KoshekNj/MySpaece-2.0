@@ -23,7 +23,7 @@ const Homepage = () => {
   const [posts, setPosts] = useState([]);
 
   const [shouldfetch, setShouldFetch] = React.useState(true);
-
+  console.log(shouldfetch);
   const date = new Date();
   const formatDate = `${date.getDate()}/${
     date.getMonth() + 1
@@ -103,6 +103,7 @@ const Homepage = () => {
                   className="delete-button"
                   onClick={() => {
                     deletePost(post._id);
+                    setShouldFetch(true);
                   }}
                 >
                   Delete

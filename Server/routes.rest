@@ -77,7 +77,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/posts/comments/6246fcbcdb46925aad36225a
+GET http://localhost:8080/posts/comments/6324c440c801a2fe23855f99
 
 ###
 DELETE http://localhost:8080/posts/comments/62e3ce5bc3b69484d644d5e3
